@@ -1,0 +1,33 @@
+{
+  "name": "cxx-cli",
+  "dependencies": {
+    "autoprefixer": "^7.1.4",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-cxx": "^0.1.0-beta.9",
+    "commander": "^2.11.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "glob": "^7.1.2",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "sass-loader": "^6.0.6",
+    "shelljs": "^0.7.8",
+    "webpack": "^3.5.6",
+    "webpack-manifest-plugin": "^1.3.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "version": "0.1.0-beta.14",
+  "description": "cxx-cli",
+  "main": "index.js",
+  "bin": {
+    "cxx": "bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "author": "Wang Zuo <wzuoadjusted@gmail.com>"
+}
