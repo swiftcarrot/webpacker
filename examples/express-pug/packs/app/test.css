@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-size: 13px;
+}
+
+h1 {
+  background-color: #eee;
+  color: #3498db;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+img {
+  width: 100px;
+}

@@ -7,53 +7,19 @@ const merge = require('webpack-merge');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const serverDevConfig = require('./webpack/server.dev');
 const clientDevConfig = require('./webpack/client.dev');
+const { appPath } = require('./webpack/paths');
 
-module.exports = function() {
-  const cwd = process.cwd();
-  const publicPath = '/packs/';
+module.exports = function(userConfig) {
+  process.env.NODE_ENV = 'development';
 
-  const clientConfig = merge(
-    {
-      entry: glob.sync('packs/*.js').reduce((entry, pack) => {
-        entry[path.basename(pack, '.js')] = `${cwd}/${pack}`;
-        return entry;
-      }, {}),
-      output: {
-        path: `${cwd}/build/packs`,
-        publicPath
-      },
-      plugins: [
-        new ManifestPlugin({
-          fileName: 'manifest.json',
-          writeToFileEmit: true,
-          publicPath
-        })
-      ]
-    },
-    clientDevConfig
-  );
+  const serverConfig = userConfig.webpack
+    ? userConfig.webpack(serverDevConfig)
+    : serverDevConfig;
 
-  const serverConfig = merge(
-    {
-      entry: { index: `${cwd}/index.js` },
-      output: {
-        path: `${cwd}/build`,
-        publicPath
-      },
-      plugins: [
-        new webpack.EnvironmentPlugin({
-          NODE_ENV: 'development',
-          MANIFEST_PATH: path.join(cwd, 'build', 'packs', 'manifest.json')
-        })
-      ]
-    },
-    serverDevConfig
-  );
-
-  const clientCompiler = webpack(clientConfig);
+  const clientCompiler = webpack(clientDevConfig);
   const serverCompiler = webpack(serverConfig);
 
-  rimraf.sync(path.join(cwd, 'build'));
+  rimraf.sync(path.join(appPath, 'build'));
 
   function startServer() {
     console.log('startServer');
@@ -63,8 +29,8 @@ module.exports = function() {
   }
 
   let serverProcess;
-  // todo: better webpack output
 
+  // todo: better webpack output
   clientCompiler.watch({}, (err, stats) => {
     console.log('client done');
   });

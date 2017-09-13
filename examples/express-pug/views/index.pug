@@ -1,0 +1,11 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet" type="text/css" href=manifest['app.css'])
+
+block scripts
+  script(src=manifest['app.js'])
+
+block content
+  h1 express pug test
+  img(src=manifest['test.jpg'])
