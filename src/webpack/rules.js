@@ -1,3 +1,4 @@
+const { env } = require('process');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -12,7 +13,7 @@ module.exports = [
     }
   },
   {
-    test: /\.css$/,
+    test: /\.(scss|css)$/,
     loader: ExtractTextPlugin.extract({
       use: [
         {
@@ -52,7 +53,7 @@ module.exports = [
         options: {
           publicPath: '/packs/',
           name:
-            process.env.NODE_ENV === 'production'
+            env.NODE_ENV === 'production'
               ? '[name]-[hash].[ext]'
               : '[name].[ext]'
         }
