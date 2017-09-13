@@ -7,7 +7,7 @@ module.exports = [
     exclude: /node_modules/,
     loader: require.resolve('babel-loader'),
     options: {
-      presets: [require.resolve('babel-preset-cxx')],
+      presets: [require('./babel')],
       cacheDirectory: true
     }
   },

@@ -82,7 +82,6 @@ module.exports = function() {
 
   serverCompiler.watch({}, (err, stats) => {
     if (stats.hasErrors()) {
-      console.log(stats);
       console.log('server compiler failed');
     } else {
       if (serverProcess) {
