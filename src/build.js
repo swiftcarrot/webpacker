@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const glob = require('glob');
 const rimraf = require('rimraf');
 const { spawnSync } = require('child_process');
 const webpack = require('webpack');
@@ -8,18 +9,18 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const clientProdConfig = require('./webpack/client.prod');
 const serverProdConfig = require('./webpack/server.prod');
 
-const cwd = process.cwd();
-
 module.exports = function(cxx, cb) {
+  const cwd = process.cwd();
+
   process.env.NODE_ENV = 'production';
   // const options = Object.assign({ publicPath: '/' }, cxx, cxx.production);
   // const { publicPath } = options;
-  const publicPath = '/assets/';
+  const publicPath = '/packs/';
 
   const serverConfig = merge(
     {
       entry: {
-        server: `${cwd}/src/server.js`
+        index: `${cwd}/index.js`
       },
       output: {
         path: `${cwd}/build`,
@@ -28,7 +29,7 @@ module.exports = function(cxx, cb) {
       plugins: [
         new webpack.EnvironmentPlugin({
           NODE_ENV: 'development',
-          MANIFEST_PATH: path.join(cwd, 'build', 'assets', 'manifest.json')
+          MANIFEST_PATH: path.join(cwd, 'build', 'packs', 'manifest.json')
         })
       ]
     },
@@ -37,11 +38,12 @@ module.exports = function(cxx, cb) {
 
   const clientConfig = merge(
     {
-      entry: {
-        client: `${cwd}/src/client.js`
-      },
+      entry: glob.sync('packs/*.js').reduce((entry, pack) => {
+        entry[path.basename(pack, '.js')] = `${cwd}/${pack}`;
+        return entry;
+      }, {}),
       output: {
-        path: `${cwd}/build/assets`,
+        path: `${cwd}/build/packs`,
         publicPath
       },
       plugins: [
@@ -55,10 +57,9 @@ module.exports = function(cxx, cb) {
     clientProdConfig
   );
 
-  // rimraf.sync('./build');
+  rimraf.sync(path.join(cwd, 'build'));
 
-  // todo: better webpack error outpu
-
+  // todo: better webpack error output
   webpack(clientConfig, (err, stats) => {
     webpack(serverConfig, (err, stats) => {
       if (err) {
@@ -78,14 +79,6 @@ module.exports = function(cxx, cb) {
       if (stats.hasWarnings()) {
         console.warn(info.warnings);
       }
-
-      // spawnSync('rm', [
-      //   '-rf',
-      //   'build/styles.css',
-      //   'build/styles.css.map',
-      //   'build/fonts',
-      //   'build/images'
-      // ]);
 
       if (cb) cb();
     });

@@ -8,27 +8,16 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const serverDevConfig = require('./webpack/server.dev');
 const clientDevConfig = require('./webpack/client.dev');
 
-const cwd = process.cwd();
-
-function spawnWithLog(file, args) {
-  return spawn(file, args, { stdio: 'inherit' });
-}
-
 module.exports = function() {
+  const cwd = process.cwd();
   const publicPath = '/packs/';
-
-  const entries = {};
-  const packs = glob.sync('packs/*.js');
-
-  packs.forEach(pack => {
-    entries[path.basename(pack, '.js')] = `${cwd}/${pack}`;
-  });
-
-  console.log(entries);
 
   const clientConfig = merge(
     {
-      entry: entries,
+      entry: glob.sync('packs/*.js').reduce((entry, pack) => {
+        entry[path.basename(pack, '.js')] = `${cwd}/${pack}`;
+        return entry;
+      }, {}),
       output: {
         path: `${cwd}/build/packs`,
         publicPath
