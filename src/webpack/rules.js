@@ -19,7 +19,7 @@ module.exports = [
         {
           loader: require.resolve('css-loader'),
           options: {
-            modules: true,
+            // modules: true,
             camelCase: true,
             importLoaders: 2
           }
