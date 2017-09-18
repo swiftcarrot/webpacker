@@ -35,16 +35,18 @@ module.exports = function(userConfig) {
     console.log('client done');
   });
 
-  serverCompiler.watch({}, (err, stats) => {
-    if (stats.hasErrors()) {
-      console.log('server compiler failed');
-    } else {
-      if (serverProcess) {
-        serverProcess.kill();
-        serverProcess = startServer();
+  if (!userConfig.clientOnly) {
+    serverCompiler.watch({}, (err, stats) => {
+      if (stats.hasErrors()) {
+        console.log('server compiler failed');
       } else {
-        serverProcess = startServer();
+        if (serverProcess) {
+          serverProcess.kill();
+          serverProcess = startServer();
+        } else {
+          serverProcess = startServer();
+        }
       }
-    }
-  });
+    });
+  }
 };

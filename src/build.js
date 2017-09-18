@@ -19,26 +19,31 @@ module.exports = function(userConfig, cb) {
 
   // todo: better webpack error output
   webpack(clientConfig, (err, stats) => {
-    webpack(serverConfig, (err, stats) => {
-      if (err) {
-        console.error(err.stack || err);
-        if (err.details) {
-          console.error(err.details);
+    console.log('client done');
+
+    if (!userConfig.clientOnly) {
+      webpack(serverConfig, (err, stats) => {
+        console.log('server done');
+        if (err) {
+          console.error(err.stack || err);
+          if (err.details) {
+            console.error(err.details);
+          }
+          return;
         }
-        return;
-      }
 
-      const info = stats.toJson();
-      if (stats.hasErrors()) {
-        console.error(info.errors);
-        return;
-      }
+        const info = stats.toJson();
+        if (stats.hasErrors()) {
+          console.error(info.errors);
+          return;
+        }
 
-      if (stats.hasWarnings()) {
-        console.warn(info.warnings);
-      }
+        if (stats.hasWarnings()) {
+          console.warn(info.warnings);
+        }
 
-      if (cb) cb();
-    });
+        if (cb) cb();
+      });
+    }
   });
 };

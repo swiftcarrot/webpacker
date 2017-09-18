@@ -8,7 +8,10 @@ const build = require('./src/build');
 const cwd = process.cwd();
 
 const configPath = path.resolve('cxx.config.js');
-const userConfig = fs.existsSync(configPath) ? require(configPath) : {};
+const userConfig = Object.assign(
+  { clientOnly: true },
+  fs.existsSync(configPath) ? require(configPath) : {}
+);
 
 program
   .command('start')
