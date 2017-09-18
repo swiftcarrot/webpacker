@@ -1,11 +1,9 @@
 const path = require('path');
-const { env } = require('process');
 const glob = require('glob');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const rules = require('./rules');
-const { publicPath, appPath } = require('./paths');
+const { env, output, appPath } = require('./configuration');
 
 module.exports = {
   entry: glob.sync(path.join(appPath, 'packs/*.js')).reduce((entry, pack) => {
@@ -14,12 +12,18 @@ module.exports = {
   }, {}),
   output: {
     path: path.join(appPath, 'build/packs'),
-    publicPath
+    publicPath: output.publicPath
   },
   performance: { hints: false },
-  module: { rules },
+  module: {
+    rules: [
+      require('./loaders/assets'),
+      require('./loaders/sass'),
+      require('./loaders/babel.client')
+    ]
+  },
   plugins: [
-    new webpack.EnvironmentPlugin({ NODE_ENV: env.NODE_ENV || 'development' }),
+    new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -37,9 +41,9 @@ module.exports = {
     ),
 
     new ManifestPlugin({
+      publicPath: output.publicPath,
       fileName: 'manifest.json',
-      writeToFileEmit: true,
-      publicPath
+      writeToFileEmit: true
     })
   ]
 };

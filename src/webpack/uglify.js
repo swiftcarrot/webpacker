@@ -1,4 +1,5 @@
 module.exports = {
+  minimize: true,
   sourceMap: true,
   compress: {
     unused: true,

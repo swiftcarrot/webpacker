@@ -10,7 +10,7 @@
     "pug-loader": "^2.3.0"
   },
   "scripts": {
-    "start": "../../bin.js start",
-    "build": "../../bin.js build"
+    "start": "NODE_ENV=development ../../bin.js start",
+    "build": "NODE_ENV=production ../../bin.js build"
   }
 }

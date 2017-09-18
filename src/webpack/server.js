@@ -3,8 +3,7 @@ const { env } = require('process');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const rules = require('./rules');
-const { appPath, publicPath } = require('./paths');
+const { appPath, output } = require('./configuration');
 
 module.exports = {
   entry: {
@@ -12,7 +11,7 @@ module.exports = {
   },
   output: {
     path: path.join(appPath, 'build'),
-    publicPath,
+    publicPath: output.publicPath,
     filename: '[name].js',
     libraryTarget: 'commonjs-module'
   },
@@ -23,7 +22,13 @@ module.exports = {
   },
   externals: [nodeExternals()],
   performance: { hints: false },
-  module: { rules: rules },
+  module: {
+    rules: [
+      require('./loaders/assets'),
+      require('./loaders/sass'),
+      require('./loaders/babel.server')
+    ]
+  },
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: env.NODE_ENV,

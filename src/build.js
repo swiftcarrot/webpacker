@@ -3,11 +3,9 @@ const path = require('path');
 const glob = require('glob');
 const rimraf = require('rimraf');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const clientProdConfig = require('./webpack/client.prod');
 const serverProdConfig = require('./webpack/server.prod');
-const { appPath, publicPath } = require('./webpack/paths');
+const { appPath } = require('./webpack/configuration');
 
 module.exports = function(userConfig, cb) {
   process.env.NODE_ENV = 'production';

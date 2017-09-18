@@ -4,10 +4,10 @@ const clientConfig = require('./client');
 const uglify = require('./uglify');
 
 module.exports = merge(clientConfig, {
-  plugins: [new webpack.optimize.UglifyJsPlugin(uglify)],
   output: {
     filename: '[name]-[chunkhash].js',
     chunkFilename: '[name]-[chunkhash].js'
   },
+  plugins: [new webpack.optimize.UglifyJsPlugin(uglify)],
   devtool: 'source-map'
 });

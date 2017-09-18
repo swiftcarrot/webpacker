@@ -7,7 +7,7 @@ const merge = require('webpack-merge');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const serverDevConfig = require('./webpack/server.dev');
 const clientDevConfig = require('./webpack/client.dev');
-const { appPath } = require('./webpack/paths');
+const { appPath } = require('./webpack/configuration');
 
 module.exports = function(userConfig) {
   process.env.NODE_ENV = 'development';
