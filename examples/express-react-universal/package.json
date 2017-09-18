@@ -1,13 +1,15 @@
 {
-  "name": "express-pug",
+  "name": "express-react-universal",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Wang Zuo <wzuoadjusted@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.4",
-    "pug": "^2.0.0-rc.4",
-    "pug-loader": "^2.3.0"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   },
   "scripts": {
     "start": "NODE_ENV=development ../../bin.js start",
