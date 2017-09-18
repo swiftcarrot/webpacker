@@ -7,7 +7,10 @@ module.exports = {
   loader: ExtractTextPlugin.extract({
     use: [
       {
-        loader: require.resolve('css-loader')
+        loader: require.resolve('css-loader'),
+        options: { minimize: env.NODE_ENV === 'production' }
+
+        // todo: mcss ??
         // options: {
         //   modules: true,
         //   camelCase: true,
@@ -18,6 +21,7 @@ module.exports = {
         loader: require.resolve('postcss-loader'),
         options: {
           ident: 'postcss',
+          options: { sourceMap: true },
           plugins: () => [
             autoprefixer({
               browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
@@ -25,7 +29,10 @@ module.exports = {
           ]
         }
       },
-      require.resolve('sass-loader')
+      {
+        loader: require.resolve('sass-loader'),
+        options: { sourceMap: true }
+      }
     ]
   })
 };
