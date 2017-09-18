@@ -10,8 +10,6 @@ const { appPath } = require('./webpack/configuration');
 module.exports = function(userConfig, cb) {
   process.env.NODE_ENV = 'production';
 
-  rimraf.sync(path.join(appPath, 'build'));
-
   const clientConfig = clientProdConfig;
   const serverConfig = userConfig.webpack
     ? userConfig.webpack(serverProdConfig)
