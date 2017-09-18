@@ -33,5 +33,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
-  "author": "Wang Zuo <wzuoadjusted@gmail.com>"
+  "author": "Wang Zuo <wzuoadjusted@gmail.com>",
+  "repository": "git@github.com:wangzuo/cxx-cli.git"
 }
