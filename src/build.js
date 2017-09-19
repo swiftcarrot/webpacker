@@ -8,8 +8,6 @@ const serverProdConfig = require('./webpack/server');
 const { appPath } = require('./webpack/configuration');
 
 module.exports = function(userConfig, cb) {
-  process.env.NODE_ENV = 'production';
-
   const clientConfig = clientProdConfig;
   const serverConfig = userConfig.webpack
     ? userConfig.webpack(serverProdConfig)
@@ -17,28 +15,11 @@ module.exports = function(userConfig, cb) {
 
   // todo: better webpack error output
   webpack(clientConfig, (err, stats) => {
-    console.log('client done');
+    console.log(stats.toString({ chunks: false, colors: true }));
 
     if (!userConfig.clientOnly) {
       webpack(serverConfig, (err, stats) => {
-        console.log('server done');
-        if (err) {
-          console.error(err.stack || err);
-          if (err.details) {
-            console.error(err.details);
-          }
-          return;
-        }
-
-        const info = stats.toJson();
-        if (stats.hasErrors()) {
-          console.error(info.errors);
-          return;
-        }
-
-        if (stats.hasWarnings()) {
-          console.warn(info.warnings);
-        }
+        console.log(stats.toString({ chunks: false, colors: true }));
 
         if (cb) cb();
       });

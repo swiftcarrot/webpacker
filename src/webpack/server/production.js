@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 const sharedConfig = require('./shared');
 const uglify = require('../uglify');
 
-module.exports = merge(serverConfig, {
+module.exports = merge(sharedConfig, {
   plugins: [
     // new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
     // new webpack.optimize.UglifyJsPlugin(uglify)

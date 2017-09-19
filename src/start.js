@@ -21,6 +21,8 @@ module.exports = function(userConfig) {
 
   rimraf.sync(path.join(appPath, 'build'));
 
+  let serverProcess;
+
   function startServer() {
     console.log('startServer');
     return spawn('node', ['./build/index.js'], {
@@ -28,24 +30,31 @@ module.exports = function(userConfig) {
     });
   }
 
-  let serverProcess;
+  function restartServer() {
+    if (serverProcess) {
+      serverProcess.kill();
+      serverProcess = startServer();
+    } else {
+      serverProcess = startServer();
+    }
+  }
 
   // todo: better webpack output
   clientCompiler.watch({}, (err, stats) => {
     console.log('client done');
+    console.log(stats.toString('errors-only'));
+
+    // if (!stats.hasErrors()) {
+    //   restartServer();
+    // }
   });
 
   if (!userConfig.clientOnly) {
     serverCompiler.watch({}, (err, stats) => {
-      if (stats.hasErrors()) {
-        console.log('server compiler failed');
-      } else {
-        if (serverProcess) {
-          serverProcess.kill();
-          serverProcess = startServer();
-        } else {
-          serverProcess = startServer();
-        }
+      console.log(stats.toString('errors-only'));
+
+      if (!stats.hasErrors()) {
+        restartServer();
       }
     });
   }
