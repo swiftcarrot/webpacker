@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
-const clientConfig = require('./client');
+const sharedConfig = require('./shared');
 
-module.exports = merge(clientConfig, {
+module.exports = merge(sharedConfig, {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js'

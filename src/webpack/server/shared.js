@@ -3,7 +3,7 @@ const { env } = require('process');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const { appPath, output } = require('./configuration');
+const { appPath, output } = require('../configuration');
 
 module.exports = {
   entry: {
@@ -24,9 +24,9 @@ module.exports = {
   performance: { hints: false },
   module: {
     rules: [
-      require('./loaders/assets'),
-      require('./loaders/sass'),
-      require('./loaders/babel.server')
+      require('../loaders/assets'),
+      require('../loaders/sass'),
+      require('../loaders/babel.server')
     ]
   },
   plugins: [

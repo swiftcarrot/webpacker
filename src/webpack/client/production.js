@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const clientConfig = require('./client');
-const uglify = require('./uglify');
+const sharedConfig = require('./shared');
+const uglify = require('../uglify');
 
-module.exports = merge(clientConfig, {
+module.exports = merge(sharedConfig, {
   output: {
     filename: '[name]-[chunkhash].js',
     chunkFilename: '[name]-[chunkhash].js'

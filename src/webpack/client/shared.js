@@ -3,7 +3,7 @@ const glob = require('glob');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const { env, output, appPath } = require('./configuration');
+const { env, output, appPath } = require('../configuration');
 
 module.exports = {
   entry: glob.sync(path.join(appPath, 'packs/*.js')).reduce((entry, pack) => {
@@ -17,9 +17,9 @@ module.exports = {
   performance: { hints: false },
   module: {
     rules: [
-      require('./loaders/assets'),
-      require('./loaders/sass'),
-      require('./loaders/babel.client')
+      require('../loaders/assets'),
+      require('../loaders/sass'),
+      require('../loaders/babel.client')
     ]
   },
   plugins: [

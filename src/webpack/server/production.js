@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const uglify = require('./uglify');
-const serverConfig = require('./server');
+const sharedConfig = require('./shared');
+const uglify = require('../uglify');
 
 module.exports = merge(serverConfig, {
   plugins: [

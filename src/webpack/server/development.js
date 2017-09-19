@@ -1,13 +1,13 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const serverConfig = require('./server');
+const sharedConfig = require('./shared');
 
-module.exports = merge(serverConfig, {
+module.exports = merge(sharedConfig, {
   plugins: [
     // new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }),
     // new FriendlyErrorsWebpackPlugin(),
-    new webpack.NoErrorsPlugin() // todo
+    // new webpack.NoErrorsPlugin() // todo
   ],
 
   // todo: source map makes incr build slow
