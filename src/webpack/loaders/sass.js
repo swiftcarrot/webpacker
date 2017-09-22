@@ -21,7 +21,7 @@ module.exports = {
         loader: require.resolve('postcss-loader'),
         options: {
           ident: 'postcss',
-          options: { sourceMap: true },
+          sourceMap: true,
           plugins: () => [
             autoprefixer({
               browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
