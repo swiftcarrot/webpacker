@@ -8,10 +8,12 @@ const serverProdConfig = require('./webpack/server');
 const { appPath } = require('./webpack/configuration');
 
 module.exports = function(userConfig, cb) {
-  const clientConfig = clientProdConfig;
-  const serverConfig = userConfig.webpack
-    ? userConfig.webpack(serverProdConfig)
+  const serverConfig = userConfig.webpack.server
+    ? userConfig.webpack.server(serverProdConfig, null, webpack)
     : serverProdConfig;
+  const clientConfig = userConfig.webpack.client
+    ? userConfig.webpack.client(clientProdConfig, null, webpack)
+    : clientProdConfig;
 
   // todo: better webpack error output
   webpack(clientConfig, (err, stats) => {

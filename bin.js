@@ -10,7 +10,7 @@ const cwd = process.cwd();
 
 const configPath = path.resolve('cxx.config.js');
 const userConfig = Object.assign(
-  { clientOnly: true },
+  { clientOnly: true, webpack: { client: {}, server: {} } },
   fs.existsSync(configPath) ? require(configPath) : {}
 );
 

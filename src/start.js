@@ -10,14 +10,15 @@ const clientDevConfig = require('./webpack/client');
 const { appPath } = require('./webpack/configuration');
 
 module.exports = function(userConfig) {
-  process.env.NODE_ENV = 'development';
-
-  const serverConfig = userConfig.webpack
-    ? userConfig.webpack(serverDevConfig)
+  const serverConfig = userConfig.webpack.server
+    ? userConfig.webpack.server(serverDevConfig, null, webpack)
     : serverDevConfig;
+  const clientConfig = userConfig.webpack.client
+    ? userConfig.webpack.client(clientDevConfig, null, webpack)
+    : clientDevConfig;
 
-  const clientCompiler = webpack(clientDevConfig);
   const serverCompiler = webpack(serverConfig);
+  const clientCompiler = webpack(clientConfig);
 
   rimraf.sync(path.join(appPath, 'build'));
 
