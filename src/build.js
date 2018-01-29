@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const rimraf = require('rimraf');
 const webpack = require('webpack');
 const clientProdConfig = require('./webpack/client');
 const serverProdConfig = require('./webpack/server');

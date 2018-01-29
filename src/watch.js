@@ -1,5 +1,4 @@
 const path = require('path');
-const rimraf = require('rimraf');
 const glob = require('glob');
 const { spawn } = require('child_process');
 const webpack = require('webpack');
@@ -19,8 +18,6 @@ module.exports = function(userConfig) {
 
   const serverCompiler = webpack(serverConfig);
   const clientCompiler = webpack(clientConfig);
-
-  rimraf.sync(path.join(appPath, 'build'));
 
   let serverProcess;
 
