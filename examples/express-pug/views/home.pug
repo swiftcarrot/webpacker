@@ -1,0 +1,12 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet" type="text/css" href=manifest['home.css'])
+
+block scripts
+  script(src=manifest['runtime~home.js'])
+
+block content
+  h1 express pug test
+  img(src=manifest['test.jpg'])
+  div(id="app")

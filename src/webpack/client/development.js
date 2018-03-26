@@ -6,6 +6,6 @@ module.exports = merge(sharedConfig, {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js'
-  },
-  devtool: 'source-map'
+  }
+  // devtool: 'source-map'
 });

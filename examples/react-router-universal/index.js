@@ -14,7 +14,6 @@ app.use('/packs', express.static(path.join(__dirname, 'packs')));
 
 app.get('*', (req, res) => {
   const context = {};
-
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={req.url} context={context}>
       <App />

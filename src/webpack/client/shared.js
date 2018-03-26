@@ -10,11 +10,14 @@ module.exports = {
     entry[path.basename(pack, '.js')] = pack;
     return entry;
   }, {}),
+
   output: {
     path: path.join(appPath, 'build/packs'),
     publicPath: output.publicPath
   },
+
   performance: { hints: false },
+
   module: {
     rules: [
       require('../loaders/assets'),
@@ -29,8 +32,10 @@ module.exports = {
     },
     runtimeChunk: true
   },
+
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
+
     new MiniCssExtractPlugin({
       filename:
         env.NODE_ENV === 'production'
