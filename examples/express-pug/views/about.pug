@@ -3,7 +3,13 @@ extends layout.pug
 block styles
 
 block scripts
+  script(src=manifest['runtime~about.js'])
+  script(src=manifest['vendors~about~home.js'])
   script(src=manifest['about.js'])
 
 block content
+  h1 About
+  a(href="/") Home
+  a(href="/about") About
+
   div(id="app")

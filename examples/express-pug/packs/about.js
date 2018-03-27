@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class About extends Compoennt {
+class About extends Component {
   render() {
     console.log('about page');
     return <div>about page</div>;

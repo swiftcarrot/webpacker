@@ -5,8 +5,12 @@ block styles
 
 block scripts
   script(src=manifest['runtime~home.js'])
+  script(src=manifest['vendors~about~home.js'])
+  script(src=manifest['home.js'])
 
 block content
-  h1 express pug test
+  h1 Home
+  a(href="/") Home
+  a(href="/about") About
   img(src=manifest['test.jpg'])
   div(id="app")
