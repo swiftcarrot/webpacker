@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const ManifestPlugin = require('../plugins/manifest');
 const { env, output, appPath } = require('../configuration');
 
 module.exports = {
@@ -39,12 +39,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename:
         env.NODE_ENV === 'production'
-          ? 'static/css/[name].[chunkhash:8].css'
-          : 'static/css/[name].css',
+          ? '[name].[chunkhash:8].css'
+          : '[name].css',
       chunkFilename:
         env.NODE_ENV === 'production'
-          ? 'static/css/[name].[chunkhash:8].chunk.css'
-          : 'static/css/[name].chunk.css'
+          ? '[name].[chunkhash:8].chunk.css'
+          : '[name].chunk.css'
     }),
 
     new ManifestPlugin({

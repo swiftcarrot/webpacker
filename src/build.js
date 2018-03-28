@@ -16,6 +16,7 @@ module.exports = function(userConfig, cb) {
 
   // todo: better webpack error output
   webpack(clientConfig, (err, stats) => {
+    if (err) console.error(err);
     console.log(stats.toString({ chunks: false, colors: true }));
 
     if (!userConfig.clientOnly) {

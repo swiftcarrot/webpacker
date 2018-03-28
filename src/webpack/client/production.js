@@ -23,6 +23,6 @@ module.exports = merge(sharedConfig, {
       chunks: 'all'
     },
     runtimeChunk: true
-  },
-  devtool: 'source-map'
+  }
+  // devtool: 'source-map'
 });
