@@ -29,9 +29,9 @@ app.get('*', (req, res) => {
   <head><title>test</title></head>
 <body>
   <div id="app">${html}</div>
-  <script src="${manifest['vendors~app.js']}"></script>
-  <script src="${manifest['runtime~app.js']}"></script>
-  <script src="${manifest['app.js']}"></script>
+  ${manifest.entrypoints.app
+    .map(x => `<script src="${manifest[x]}"></script>`)
+    .join('')}
 </body>
 </html>
     `);

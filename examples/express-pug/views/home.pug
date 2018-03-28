@@ -1,12 +1,12 @@
 extends layout.pug
 
 block styles
-  link(rel="stylesheet" type="text/css" href=manifest['home.css'])
+  each file in entrypointCSS('home')
+    link(rel="stylesheet" type="text/css" href=file)
 
 block scripts
-  script(src=manifest['runtime~home.js'])
-  script(src=manifest['vendors~about~home.js'])
-  script(src=manifest['home.js'])
+  each file in entrypointJS('home')
+    script(src=file)
 
 block content
   h1 Home
