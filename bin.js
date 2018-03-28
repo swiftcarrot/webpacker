@@ -5,11 +5,10 @@ const path = require('path');
 const program = require('commander');
 const watch = require('./src/watch');
 const build = require('./src/build');
-const clean = require('./src/clean');
 const devServer = require('./src/dev-server');
-const cwd = process.cwd();
+const clean = require('./src/clean');
 
-const configPath = path.resolve('cxx.config.js');
+const configPath = path.resolve('webpacker.config.js');
 const userConfig = Object.assign(
   { clientOnly: true, webpack: { client: null, server: null } },
   fs.existsSync(configPath) ? require(configPath) : {}
@@ -18,28 +17,28 @@ const userConfig = Object.assign(
 program
   .command('watch')
   .description('watch')
-  .action(function(options) {
+  .action(function() {
     watch(userConfig);
   });
 
 program
   .command('build')
   .description('build')
-  .action(function(options) {
+  .action(function() {
     build(userConfig);
   });
 
 program
   .command('clean')
   .description('clean')
-  .action(function(options) {
+  .action(function() {
     clean(userConfig);
   });
 
 program
   .command('dev-server')
   .description('dev server')
-  .action(function(options) {
+  .action(function() {
     devServer(userConfig);
   });
 

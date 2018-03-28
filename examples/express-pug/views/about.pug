@@ -1,0 +1,16 @@
+extends layout.pug
+
+block styles
+  each file in entrypointCSS('about')
+    link(rel="stylesheet" type="text/css" href=file)
+
+block scripts
+  each file in entrypointJS('about')
+    script(src=file)
+
+block content
+  h1 About
+  a(href="/") Home
+  a(href="/about") About
+
+  div(id="app")

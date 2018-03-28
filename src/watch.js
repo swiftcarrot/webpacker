@@ -1,12 +1,7 @@
-const path = require('path');
-const glob = require('glob');
 const { spawn } = require('child_process');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const serverDevConfig = require('./webpack/server');
 const clientDevConfig = require('./webpack/client');
-const { appPath } = require('./webpack/configuration');
 
 module.exports = function(userConfig) {
   const serverConfig = userConfig.webpack.server

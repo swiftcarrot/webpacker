@@ -14,7 +14,6 @@ app.use('/packs', express.static(path.join(__dirname, 'packs')));
 
 app.get('*', (req, res) => {
   const context = {};
-
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={req.url} context={context}>
       <App />
@@ -25,16 +24,16 @@ app.get('*', (req, res) => {
     res.redirect(context.url);
   } else {
     res.send(`
-      <!doctype html>
-      <html>
-        <head><title>test</title></head>
-      <body>
-        <div id="app">${html}</div>
-        <script src="${manifest['manifest.js']}"></script>
-        <script src="${manifest['vendor.js']}"></script>
-        <script src="${manifest['app.js']}"></script>
-      </body>
-      </html>
+<!doctype html>
+<html>
+  <head><title>test</title></head>
+<body>
+  <div id="app">${html}</div>
+  ${manifest.entrypoints.app
+    .map(x => `<script src="${manifest[x]}"></script>`)
+    .join('')}
+</body>
+</html>
     `);
   }
 });

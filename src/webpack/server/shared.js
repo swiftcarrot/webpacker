@@ -2,7 +2,6 @@ const path = require('path');
 const { env } = require('process');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { appPath, output } = require('../configuration');
 
 module.exports = {
@@ -33,9 +32,9 @@ module.exports = {
     new webpack.EnvironmentPlugin({
       NODE_ENV: env.NODE_ENV,
       MANIFEST_PATH: path.join(appPath, 'build', 'packs', 'manifest.json')
-    }),
+    })
 
-    new ExtractTextPlugin({ filename: 'styles.css' }) // todo
+    // new ExtractTextPlugin({ filename: 'styles.css' }) // todo
 
     // todo: banner on js only
     /*

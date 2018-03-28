@@ -1,1 +1,1 @@
-throw new Error('Donot import cxx-cli');
+throw new Error('Donot import webpacker-cli');

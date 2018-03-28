@@ -4,8 +4,7 @@ module.exports = {
   compress: {
     unused: true,
     dead_code: true,
-    warnings: false,
-    screw_ie8: true
+    warnings: false
   },
   output: {
     comments: false
