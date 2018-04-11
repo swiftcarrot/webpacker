@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ManifestPlugin = require('../plugins/manifest');
+const WebpackAssetsManifest = require('webpack-assets-manifest');
 const { env, output, appPath } = require('../configuration');
 
 module.exports = {
@@ -47,10 +47,9 @@ module.exports = {
           : '[name].chunk.css'
     }),
 
-    new ManifestPlugin({
-      publicPath: output.publicPath,
-      fileName: 'manifest.json',
-      writeToFileEmit: true
+    new WebpackAssetsManifest({
+      entrypoints: true,
+      publicPath: true
     })
   ]
 };

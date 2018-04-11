@@ -12,12 +12,8 @@ app.set('view engine', 'pug');
 
 app.use((req, res, next) => {
   res.locals.manifest = manifest;
-  res.locals.entrypointJS = e =>
-    manifest.entrypoints[e].filter(x => x.match(/\.js$/)).map(x => manifest[x]);
-  res.locals.entrypointCSS = e =>
-    manifest.entrypoints[e]
-      .filter(x => x.match(/\.css$/))
-      .map(x => manifest[x]);
+  res.locals.entrypointJS = e => manifest.entrypoints[e].js || [];
+  res.locals.entrypointCSS = e => manifest.entrypoints[e].css || [];
 
   next();
 });
