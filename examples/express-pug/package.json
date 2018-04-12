@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "npm run build && node index.js",
+    "watch": "../../bin.js watch",
     "build": "NODE_ENV=production ../../bin.js build"
   }
 }
