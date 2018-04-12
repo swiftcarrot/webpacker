@@ -1,21 +1,19 @@
 const { spawn } = require('child_process');
 const webpack = require('webpack');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const serverDevConfig = require('./webpack/server');
-const clientDevConfig = require('./webpack/client');
 
 module.exports = function(userConfig) {
-  const serverConfig = userConfig.webpack.server
-    ? userConfig.webpack.server(serverDevConfig, null, webpack)
-    : serverDevConfig;
   const clientConfig = userConfig.webpack.client
-    ? userConfig.webpack.client(clientDevConfig, null, webpack)
-    : clientDevConfig;
+    ? userConfig.webpack.client(require('./webpack/client'), null, webpack)
+    : require('./webpack/client');
 
   clientConfig.plugins.push(new FriendlyErrorsWebpackPlugin());
 
-  const serverCompiler = webpack(serverConfig);
   const clientCompiler = webpack(clientConfig);
+
+  clientCompiler.watch({}, () => {});
+
+  if (userConfig.clientOnly) return;
 
   let serverProcess;
 
@@ -35,9 +33,12 @@ module.exports = function(userConfig) {
     }
   }
 
-  clientCompiler.watch({}, () => {});
-
   if (!userConfig.clientOnly) {
+    const serverConfig = userConfig.webpack.server
+      ? userConfig.webpack.server(require('./webpack/server'), null, webpack)
+      : require('./webpack/server');
+    const serverCompiler = webpack(serverConfig);
+
     serverCompiler.watch({}, (err, stats) => {
       console.log(stats.toString('errors-only'));
 
