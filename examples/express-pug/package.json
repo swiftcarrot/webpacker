@@ -13,6 +13,7 @@
   "scripts": {
     "start": "npm run build && node index.js",
     "watch": "../../bin.js watch",
+    "serve": "../../bin.js serve",
     "build": "NODE_ENV=production ../../bin.js build"
   }
 }

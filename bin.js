@@ -5,7 +5,7 @@ const path = require('path');
 const program = require('commander');
 const watch = require('./src/watch');
 const build = require('./src/build');
-const devServer = require('./src/dev-server');
+const serve = require('./src/serve');
 const clean = require('./src/clean');
 
 const configPath = path.resolve('webpacker.config.js');
@@ -36,10 +36,10 @@ program
   });
 
 program
-  .command('dev-server')
-  .description('dev server')
+  .command('serve')
+  .description('webpack serve')
   .action(function() {
-    devServer(userConfig);
+    serve(userConfig);
   });
 
 program.parse(process.argv);
