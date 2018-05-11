@@ -5,7 +5,9 @@ const { env } = require('../configuration.js');
 module.exports = {
   test: /\.(scss|sass|css)$/i,
   use: [
-    MiniCssExtractPlugin.loader,
+    env.NODE_ENV === 'production'
+      ? MiniCssExtractPlugin.loader
+      : require.resolve('style-loader'),
     {
       loader: require.resolve('css-loader'),
       options: {
