@@ -27,7 +27,7 @@
     "webpack-merge": "^4.1.2",
     "webpack-node-externals": "^1.7.2"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "webpacker-cli",
   "main": "index.js",
   "bin": {
