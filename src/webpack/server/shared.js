@@ -23,9 +23,9 @@ module.exports = {
   performance: { hints: false },
   module: {
     rules: [
-      require('../loaders/assets'),
-      require('../loaders/sass'),
-      require('../loaders/babel.server')
+      require('../rules/assets'),
+      require('../rules/sass'),
+      require('../rules/babel.server')
     ]
   },
   plugins: [

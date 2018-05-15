@@ -2,24 +2,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const { env } = require('../configuration.js');
 
-module.exports = {
-  test: /\.(scss|sass|css)$/i,
-  use: [
+exports.getStyleLoaders = function getStyleLoaders(cssOptions, preProcessor) {
+  const loaders = [
     env.NODE_ENV === 'production'
       ? MiniCssExtractPlugin.loader
       : require.resolve('style-loader'),
     {
       loader: require.resolve('css-loader'),
-      options: {
-        minimize: env.NODE_ENV === 'production'
-      }
-
-      // todo: mcss ??
-      // options: {
-      //   modules: true,
-      //   camelCase: true,
-      //   importLoaders: 2
-      // }
+      options: cssOptions
     },
     {
       loader: require.resolve('postcss-loader'),
@@ -32,10 +22,12 @@ module.exports = {
           })
         ]
       }
-    },
-    {
-      loader: require.resolve('sass-loader'),
-      options: { sourceMap: true }
     }
-  ]
+  ];
+
+  if (preProcessor) {
+    loaders.push(preProcessor);
+  }
+
+  return loaders;
 };
