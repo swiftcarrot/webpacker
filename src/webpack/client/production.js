@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const sharedConfig = require('./shared');
 const uglify = require('../uglify');
 
@@ -17,7 +18,8 @@ module.exports = merge(sharedConfig, {
         parallel: true,
         cache: true
         // sourceMap: shouldUseSourceMap,
-      })
+      }),
+      new OptimizeCSSAssetsPlugin({})
     ],
     splitChunks: {
       chunks: 'all'

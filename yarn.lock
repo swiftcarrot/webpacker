@@ -1540,7 +1540,7 @@ cssesc@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-0.1.0.tgz#c814903e45623371a0477b40109aaafbeeaddbb4"
 
-cssnano@^3.10.0:
+cssnano@^3.10.0, cssnano@^3.4.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-3.10.0.tgz#4f38f6cea2b9b17fa01490f23f1dc68ea65c1c38"
   dependencies:
@@ -2969,8 +2969,8 @@ koa-compose@^3.0.0:
     any-promise "^1.1.0"
 
 koa-compose@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/koa-compose/-/koa-compose-4.0.0.tgz#2800a513d9c361ef0d63852b038e4f6f2d5a773c"
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/koa-compose/-/koa-compose-4.1.0.tgz#507306b9371901db41121c812e923d0d67d3e877"
 
 koa-convert@^1.2.0:
   version "1.2.0"
@@ -2994,8 +2994,8 @@ koa-webpack@^3.0.1:
     webpack-log "^1.1.1"
 
 koa@^2.4.1:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/koa/-/koa-2.5.0.tgz#b0fbe1e195e43b27588a04fd0be0ddaeca2c154c"
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/koa/-/koa-2.5.1.tgz#79f8b95f8d72d04fe9a58a8da5ebd6d341103f9c"
   dependencies:
     accepts "^1.2.2"
     content-disposition "~0.5.0"
@@ -3021,6 +3021,13 @@ koa@^2.4.1:
     statuses "^1.2.0"
     type-is "^1.5.5"
     vary "^1.0.0"
+
+last-call-webpack-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/last-call-webpack-plugin/-/last-call-webpack-plugin-3.0.0.tgz#9742df0e10e3cf46e5c0381c2de90d3a7a2d7555"
+  dependencies:
+    lodash "^4.17.5"
+    webpack-sources "^1.1.0"
 
 latest-version@^3.0.0:
   version "3.1.0"
@@ -3683,6 +3690,13 @@ opn@^5.1.0:
   resolved "https://registry.yarnpkg.com/opn/-/opn-5.3.0.tgz#64871565c863875f052cfdf53d3e3cb5adb53b1c"
   dependencies:
     is-wsl "^1.1.0"
+
+optimize-css-assets-webpack-plugin@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-4.0.1.tgz#48f016766752c7648b92cc1e795b999732bd87a2"
+  dependencies:
+    cssnano "^3.4.0"
+    last-call-webpack-plugin "^3.0.0"
 
 os-browserify@^0.3.0:
   version "0.3.0"
@@ -5032,6 +5046,13 @@ strip-indent@^2.0.0:
 strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
+
+style-loader@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.21.0.tgz#68c52e5eb2afc9ca92b6274be277ee59aea3a852"
+  dependencies:
+    loader-utils "^1.1.0"
+    schema-utils "^0.4.5"
 
 supports-color@^2.0.0:
   version "2.0.0"

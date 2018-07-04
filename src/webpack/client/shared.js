@@ -20,9 +20,12 @@ module.exports = {
 
   module: {
     rules: [
-      require('../loaders/assets'),
-      require('../loaders/sass'),
-      require('../loaders/babel.client')
+      require('../rules/assets'),
+      require('../rules/css'),
+      require('../rules/module.css'),
+      require('../rules/sass'),
+      require('../rules/module.sass'),
+      require('../rules/babel.client')
     ]
   },
 
