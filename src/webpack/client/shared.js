@@ -12,8 +12,11 @@ module.exports = {
   }, {}),
 
   output: {
-    path: path.join(appPath, 'build/packs'),
-    publicPath: output.publicPath
+    path: path.join(appPath, 'build'),
+    filename: 'packs/[name].js',
+    chunkFilename: 'packs/[name].chunk.js'
+
+    // publicPath: output.publicPath
   },
 
   performance: { hints: false },
@@ -42,15 +45,16 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename:
         env.NODE_ENV === 'production'
-          ? '[name].[chunkhash:8].css'
-          : '[name].css',
+          ? 'packs/[name].[contenthash:8].css'
+          : 'packs/[name].css',
       chunkFilename:
         env.NODE_ENV === 'production'
-          ? '[name].[chunkhash:8].chunk.css'
-          : '[name].chunk.css'
+          ? 'packs/[name].[contenthash:8].chunk.css'
+          : 'packs/[name].chunk.css'
     }),
 
     new WebpackAssetsManifest({
+      fileName: 'asset-manifest.json',
       entrypoints: true,
       publicPath: true
     })

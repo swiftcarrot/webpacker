@@ -6,11 +6,11 @@ module.exports = {
     {
       loader: require.resolve('file-loader'),
       options: {
-        publicPath: '/packs/',
+        // publicPath: '/packs/',
         name:
           env.NODE_ENV === 'production' // todo: env fix
-            ? '[name]-[hash].[ext]'
-            : '[name].[ext]'
+            ? 'packs/[name].[hash:8].[ext]'
+            : 'packs/[name].[ext]'
       }
     }
   ]

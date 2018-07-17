@@ -7,8 +7,8 @@ const uglify = require('../uglify');
 module.exports = merge(sharedConfig, {
   mode: 'production',
   output: {
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].js'
+    filename: 'packs/[name].[chunkhash:8].js',
+    chunkFilename: 'packs/[name].[chunkhash:8].chunk.js'
   },
 
   optimization: {
