@@ -52,7 +52,7 @@ module.exports = {
     }),
 
     new WebpackAssetsManifest({
-      fileName: 'assets-manifest.json',
+      output: 'assets-manifest.json',
       entrypoints: true
     })
   ]

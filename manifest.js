@@ -1,26 +1,26 @@
 const fs = require('fs');
 const path = require('path');
+
 const env = process.env.NODE_ENV || 'development';
 
-module.exports = packs => (req, res, next) => {
+function assignLocals(res, manifest) {
+  res.locals.manifest = manifest;
+  res.locals.entrypointJS = e => manifest.entrypoints[e].js || [];
+  res.locals.entrypointCSS = e => manifest.entrypoints[e].css || [];
+}
+
+module.exports = outputPath => (req, res, next) => {
   if (env === 'production') {
-    const manifest = require(path.join(packs, 'assets-manifest.json'));
-
-    res.locals.manifest = manifest;
-    res.locals.entrypointJS = e => manifest.entrypoints[e].js || [];
-    res.locals.entrypointCSS = e => manifest.entrypoints[e].css || [];
-
+    const manifest = require(path.join(outputPath, 'assets-manifest.json'));
+    assignLocals(res, manifest);
     next();
   } else {
-    const manifestPath = path.join(packs, 'assets-manifest.json');
+    const manifestPath = path.join(outputPath, 'assets-manifest.json');
     fs.readFile(manifestPath, 'utf8', (err, data) => {
       if (err) return next(err);
+
       const manifest = JSON.parse(data);
-
-      res.locals.manifest = manifest;
-      res.locals.entrypointJS = e => manifest.entrypoints[e].js || [];
-      res.locals.entrypointCSS = e => manifest.entrypoints[e].css || [];
-
+      assignLocals(res, manifest);
       next();
     });
   }
