@@ -10,7 +10,6 @@ module.exports = {
   },
   output: {
     path: path.join(appPath, 'build'),
-    publicPath: output.publicPath,
     filename: '[name].js'
     // libraryTarget: 'commonjs-module'
   },

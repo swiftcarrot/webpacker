@@ -3,7 +3,7 @@ const glob = require('glob');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
-const { env, output, appPath } = require('../configuration');
+const { env, appPath } = require('../configuration');
 
 module.exports = {
   entry: glob.sync(path.join(appPath, 'packs/*.js')).reduce((entry, pack) => {
@@ -15,8 +15,6 @@ module.exports = {
     path: path.join(appPath, 'build'),
     filename: 'packs/[name].js',
     chunkFilename: 'packs/[name].chunk.js'
-
-    // publicPath: output.publicPath
   },
 
   performance: { hints: false },
@@ -55,8 +53,7 @@ module.exports = {
 
     new WebpackAssetsManifest({
       fileName: 'assets-manifest.json',
-      entrypoints: true,
-      publicPath: true
+      entrypoints: true
     })
   ]
 };
