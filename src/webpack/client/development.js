@@ -4,8 +4,9 @@ const sharedConfig = require('./shared');
 module.exports = merge(sharedConfig, {
   mode: 'development',
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].js'
+    filename: 'packs/[name].js',
+    chunkFilename: 'packs/[name].js',
+    publicPath: '/'
   }
   // devtool: 'source-map'
 });

@@ -12,9 +12,7 @@ module.exports = {
   }, {}),
 
   output: {
-    path: path.join(appPath, 'build'),
-    filename: 'packs/[name].js',
-    chunkFilename: 'packs/[name].chunk.js'
+    path: path.join(appPath, 'build')
   },
 
   performance: { hints: false },
