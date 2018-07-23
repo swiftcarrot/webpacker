@@ -7,6 +7,6 @@ module.exports = merge(sharedConfig, {
     filename: 'packs/[name].js',
     chunkFilename: 'packs/[name].js',
     publicPath: '/'
-  }
-  // devtool: 'source-map'
+  },
+  devtool: 'source-map'
 });

@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 class Home extends Component {
+  state = {
+    text: 'Home Page'
+  };
+
   render() {
     console.log('home page');
-    return <div>home page</div>;
+    return <div>{this.state.text}</div>;
   }
 }
 
-ReactDOM.render(<Home />, document.getElementById('app'));
+render(<Home />, document.getElementById('app'));

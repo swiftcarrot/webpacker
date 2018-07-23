@@ -10,7 +10,7 @@
     "@babel/preset-env": "^7.0.0-beta.54",
     "@babel/preset-flow": "^7.0.0-beta.54",
     "@babel/preset-react": "^7.0.0-beta.54",
-    "autoprefixer": "^9.0.0",
+    "autoprefixer": "^9.0.1",
     "babel-loader": "^8.0.0-beta",
     "commander": "^2.16.0",
     "css-loader": "^1.0.0",

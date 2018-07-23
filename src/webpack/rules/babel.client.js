@@ -7,7 +7,6 @@ module.exports = {
       [
         require.resolve('@babel/preset-env'),
         {
-          useBuiltIns: 'usage',
           modules: false
         }
       ],
