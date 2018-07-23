@@ -8,7 +8,13 @@ class Home extends Component {
 
   render() {
     console.log('home page');
-    return <div>{this.state.text}</div>;
+
+    return (
+      <div>
+        <img src={require('./test.jpg')} />
+        <div>{this.state.text}</div>
+      </div>
+    );
   }
 }
 
