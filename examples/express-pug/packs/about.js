@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 class About extends Component {
+  state = {
+    text: 'About Page'
+  };
+
   render() {
     console.log('about page');
-    return <div>about page</div>;
+    return <div>{this.state.text}</div>;
   }
 }
 
-ReactDOM.render(<About />, document.getElementById('app'));
+render(<About />, document.getElementById('app'));

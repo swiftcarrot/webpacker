@@ -8,7 +8,6 @@ module.exports = {
   appPath: resolveApp('.'),
   env: process.env,
   output: {
-    path: '',
-    publicPath: '/packs/'
+    path: ''
   }
 };

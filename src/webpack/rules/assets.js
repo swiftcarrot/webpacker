@@ -1,4 +1,4 @@
-const { env, publicPath } = require('../configuration.js');
+const { env } = require('../configuration.js');
 
 module.exports = {
   test: /\.(jpg|jpeg|png|gif|svg|eot|ttf|woff|woff2)$/i,
@@ -6,11 +6,10 @@ module.exports = {
     {
       loader: require.resolve('file-loader'),
       options: {
-        publicPath: '/packs/',
         name:
           env.NODE_ENV === 'production' // todo: env fix
-            ? '[name]-[hash].[ext]'
-            : '[name].[ext]'
+            ? 'packs/[name].[hash:8].[ext]'
+            : 'packs/[name].[ext]'
       }
     }
   ]

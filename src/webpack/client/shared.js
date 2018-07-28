@@ -3,7 +3,7 @@ const glob = require('glob');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
-const { env, output, appPath } = require('../configuration');
+const { env, appPath } = require('../configuration');
 
 module.exports = {
   entry: glob.sync(path.join(appPath, 'packs/*.js')).reduce((entry, pack) => {
@@ -12,8 +12,7 @@ module.exports = {
   }, {}),
 
   output: {
-    path: path.join(appPath, 'build/packs'),
-    publicPath: output.publicPath
+    path: path.join(appPath, 'build')
   },
 
   performance: { hints: false },
@@ -42,17 +41,17 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename:
         env.NODE_ENV === 'production'
-          ? '[name].[chunkhash:8].css'
-          : '[name].css',
+          ? 'packs/[name].[contenthash:8].css'
+          : 'packs/[name].css',
       chunkFilename:
         env.NODE_ENV === 'production'
-          ? '[name].[chunkhash:8].chunk.css'
-          : '[name].chunk.css'
+          ? 'packs/[name].[contenthash:8].chunk.css'
+          : 'packs/[name].chunk.css'
     }),
 
     new WebpackAssetsManifest({
-      entrypoints: true,
-      publicPath: true
+      output: 'assets-manifest.json',
+      entrypoints: true
     })
   ]
 };

@@ -5,22 +5,19 @@ module.exports = {
   options: {
     presets: [
       [
-        require.resolve('babel-preset-env'),
+        require.resolve('@babel/preset-env'),
         {
-          modules: false,
-          targets: {
-            browsers: ['> 1%', 'last 2 versions', 'IE 10'],
-            uglify: true
-          },
-          useBuiltIns: true
+          modules: false
         }
       ],
-      require.resolve('babel-preset-react')
+      require.resolve('@babel/preset-flow'),
+      require.resolve('@babel/preset-react')
     ],
     plugins: [
-      require.resolve('babel-plugin-syntax-dynamic-import'),
-      require.resolve('babel-plugin-transform-object-rest-spread'),
-      require.resolve('babel-plugin-transform-class-properties')
+      require.resolve('@babel/plugin-transform-destructuring'),
+      require.resolve('@babel/plugin-proposal-class-properties'),
+      require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      require.resolve('@babel/plugin-syntax-dynamic-import')
     ],
     cacheDirectory: true
   }
