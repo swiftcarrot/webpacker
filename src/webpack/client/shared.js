@@ -51,7 +51,8 @@ module.exports = {
 
     new WebpackAssetsManifest({
       output: 'assets-manifest.json',
-      entrypoints: true
+      entrypoints: true,
+      publicPath: true
     })
   ]
 };

@@ -8,7 +8,8 @@ module.exports = merge(sharedConfig, {
   mode: 'production',
   output: {
     filename: 'packs/[name].[chunkhash:8].js',
-    chunkFilename: 'packs/[name].[chunkhash:8].chunk.js'
+    chunkFilename: 'packs/[name].[chunkhash:8].chunk.js',
+    publicPath: '/'
   },
 
   optimization: {
