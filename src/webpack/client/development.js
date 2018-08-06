@@ -8,5 +8,5 @@ module.exports = merge(sharedConfig, {
     chunkFilename: 'packs/[name].js',
     publicPath: '/'
   },
-  devtool: 'source-map'
+  devtool: 'eval'
 });
