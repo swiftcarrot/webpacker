@@ -1,5 +1,14 @@
 {
   "name": "webpacker-cli",
+  "version": "0.3.2",
+  "description": "webpacker-cli",
+  "main": "index.js",
+  "bin": {
+    "webpacker": "bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
@@ -29,15 +38,6 @@
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2",
     "webpack-serve": "^2.0.2"
-  },
-  "version": "0.3.2",
-  "description": "webpacker-cli",
-  "main": "index.js",
-  "bin": {
-    "webpacker": "bin.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
   "author": "Wang Zuo <wzuoadjusted@gmail.com>",
