@@ -1,3 +1,4 @@
+const loaderUtils = require('loader-utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const { env } = require('../configuration.js');
@@ -30,4 +31,33 @@ exports.getStyleLoaders = function getStyleLoaders(cssOptions, preProcessor) {
   }
 
   return loaders;
+};
+
+exports.getCSSModuleLocalIdent = function(
+  context,
+  localIdentName,
+  localName,
+  options
+) {
+  if (env.NODE_ENV === 'production') {
+    return '[hash:base64:6]';
+  }
+
+  const fileNameOrFolder = context.resourcePath.match(
+    /index\.module\.(css|scss|sass)$/
+  )
+    ? '[folder]'
+    : '[name]';
+  const hash = loaderUtils.getHashDigest(
+    context.resourcePath + localName,
+    'md5',
+    'base64',
+    5
+  );
+  const className = loaderUtils.interpolateName(
+    context,
+    fileNameOrFolder + '_' + localName + '__' + hash,
+    options
+  );
+  return className.replace('.module_', '_');
 };

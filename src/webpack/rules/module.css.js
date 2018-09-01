@@ -1,9 +1,10 @@
-const { getStyleLoaders } = require('./utils');
+const { getStyleLoaders, getCSSModuleLocalIdent } = require('./utils');
 
 module.exports = {
   test: /\.module\.css$/,
   use: getStyleLoaders({
     importLoaders: 1,
-    modules: true
+    modules: true,
+    getLocalIdent: getCSSModuleLocalIdent
   })
 };
