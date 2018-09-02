@@ -1,4 +1,4 @@
-# webpacker-cli
+# webpacker
 
 [![npm](https://img.shields.io/npm/v/webpacker-cli.svg)](https://www.npmjs.com/package/webpacker-cli)
 [![Build Status](https://travis-ci.org/wangzuo/webpacker-cli.svg?branch=master)](https://travis-ci.org/wangzuo/webpacker-cli)

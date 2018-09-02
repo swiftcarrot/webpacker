@@ -39,21 +39,20 @@ exports.getCSSModuleLocalIdent = function(
   localName,
   options
 ) {
-  if (env.NODE_ENV === 'production') {
-    return '[hash:base64:6]';
-  }
-
   const fileNameOrFolder = context.resourcePath.match(
     /index\.module\.(css|scss|sass)$/
   )
     ? '[folder]'
     : '[name]';
-  const hash = loaderUtils.getHashDigest(
-    context.resourcePath + localName,
-    'md5',
-    'base64',
-    5
-  );
+  const hash = loaderUtils
+    .getHashDigest(context.resourcePath + localName, 'md5', 'base64', 6)
+    .replace(new RegExp('[^a-zA-Z0-9\\-_\u00A0-\uFFFF]', 'g'), '-')
+    .replace(/^((-?[0-9])|--)/, '_$1');
+
+  if (env.NODE_ENV === 'production') {
+    return hash;
+  }
+
   const className = loaderUtils.interpolateName(
     context,
     fileNameOrFolder + '_' + localName + '__' + hash,
