@@ -1,0 +1,9 @@
+{
+  "name": "spa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production ../../bin.js build"
+  }
+}
