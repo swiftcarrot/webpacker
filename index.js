@@ -1,1 +1,1 @@
-throw new Error('Donot import webpacker-cli');
+throw new Error('Donot import ' + require('./package.json').name);
