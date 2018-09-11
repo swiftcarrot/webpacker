@@ -51,7 +51,7 @@ if (fs.existsSync(indexHTML)) {
     if (fs.existsSync(templatePath)) {
       plugins.push(
         new HtmlWebpackPlugin({
-          filename: `k.html`,
+          filename: `${k}.html`,
           minify: true,
           chunks: [k],
           template: templatePath
