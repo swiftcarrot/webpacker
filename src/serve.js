@@ -1,7 +1,7 @@
 const { parse } = require('url');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+// const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = function(userConfig, listen) {
   const clientConfig = userConfig.webpack.client

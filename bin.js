@@ -2,11 +2,12 @@
 
 const fs = require('fs');
 const path = require('path');
-const program = require('commander');
+const yargs = require('yargs');
+const init = require('./src/init');
+const clean = require('./src/clean');
 const watch = require('./src/watch');
 const build = require('./src/build');
 const serve = require('./src/serve');
-const clean = require('./src/clean');
 
 const configPath = path.resolve('webpacker.config.js');
 const userConfig = Object.assign(
@@ -14,34 +15,28 @@ const userConfig = Object.assign(
   fs.existsSync(configPath) ? require(configPath) : {}
 );
 
-program
-  .command('watch')
-  .description('watch')
-  .action(function() {
-    watch(userConfig);
-  });
-
-program
-  .command('build')
-  .description('build')
-  .action(function() {
-    build(userConfig);
-  });
-
-program
-  .command('clean')
-  .description('clean')
-  .action(function() {
-    clean(userConfig);
-  });
-
-program
-  .command('serve')
-  .description('webpack serve')
-  .option('-l', '--listen <uri>', 'listen uri')
-  .action(function(uri) {
-    console.log(uri)
-    serve(userConfig, uri);
-  });
-
-program.parse(process.argv);
+yargs
+  .command('clean', 'clean', () => {}, () => clean())
+  .command('init', 'init', () => {}, () => init())
+  .command(
+    'watch',
+    'watch build',
+    yargs => yargs.option('e', { default: 'development' }),
+    argv => watch(userConfig, argv)
+  )
+  .command(
+    'build',
+    'build',
+    yargs => yargs.option('e', { default: 'production' }),
+    argv => build(userConfig, argv)
+  )
+  .command(
+    'serve',
+    'webpack serve',
+    yargs => {
+      yargs.option('l', { default: 'http://127.0.0.1:3000' });
+    },
+    argv => {
+      serve(userConfig, argv.l);
+    }
+  ).argv;

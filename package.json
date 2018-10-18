@@ -22,7 +22,6 @@
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.2.1",
     "babel-loader": "^8.0.4",
-    "commander": "^2.19.0",
     "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
@@ -39,7 +38,8 @@
     "webpack-assets-manifest": "^3.1.0",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "yargs": "^12.0.2"
   },
   "license": "MIT",
   "author": "Wang Zuo <wzuoadjusted@gmail.com>",
