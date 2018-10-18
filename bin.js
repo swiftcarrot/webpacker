@@ -38,8 +38,10 @@ program
 program
   .command('serve')
   .description('webpack serve')
-  .action(function() {
-    serve(userConfig);
+  .option('-l', '--listen <uri>', 'listen uri')
+  .action(function(uri) {
+    console.log(uri)
+    serve(userConfig, uri);
   });
 
 program.parse(process.argv);

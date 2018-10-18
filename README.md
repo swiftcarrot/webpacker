@@ -14,6 +14,7 @@ yarn add webpacker-cli --dev
 ### Usage
 
 ```sh
+webpacker serve
 webpacker watch
 webpacker build
 ```
