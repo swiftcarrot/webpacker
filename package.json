@@ -7,7 +7,7 @@
     "webpacker": "bin.js"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "files": ["src", "bin.js", "index.js"],
   "dependencies": {
@@ -47,5 +47,9 @@
   "repository": "git@github.com:wangzuo/webpacker-cli.git",
   "devDependencies": {
     "jest": "^23.6.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.js"]
   }
 }
