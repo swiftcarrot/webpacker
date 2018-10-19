@@ -7,8 +7,9 @@
     "webpacker": "bin.js"
   },
   "scripts": {
-    "test": "exit 0"
+    "test": "jest --coverage"
   },
+  "files": ["src", "bin.js", "index.js"],
   "dependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
@@ -43,5 +44,8 @@
   },
   "license": "MIT",
   "author": "Wang Zuo <wzuoadjusted@gmail.com>",
-  "repository": "git@github.com:wangzuo/webpacker-cli.git"
+  "repository": "git@github.com:wangzuo/webpacker-cli.git",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }

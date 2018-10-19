@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`uglify 1`] = `
+Object {
+  "compress": Object {
+    "dead_code": true,
+    "unused": true,
+    "warnings": false,
+  },
+  "minimize": true,
+  "output": Object {
+    "comments": false,
+  },
+  "sourceMap": true,
+}
+`;
