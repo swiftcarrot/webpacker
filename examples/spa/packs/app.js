@@ -1,5 +1,10 @@
 import './global.scss';
+import { en } from '../locales/en.yml';
+import { zh } from '../locales/zh.yml';
 
 const el = document.getElementById('app');
+const locales = { en, zh };
+const lang = window.location.search.substr(1);
+const locale = locales[lang === 'en' ? 'en' : 'zh'];
 
-el.innerHTML = `<h1>${window.location.pathname}</h1>`;
+el.innerHTML = `<h1>${locale.hello} ${window.location.pathname.substr(1)}</h1>`;

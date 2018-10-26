@@ -9,7 +9,11 @@
   "scripts": {
     "test": "jest"
   },
-  "files": ["src", "bin.js", "index.js"],
+  "files": [
+    "src",
+    "bin.js",
+    "index.js"
+  ],
   "dependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
@@ -40,6 +44,7 @@
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2",
+    "yaml": "^1.0.0",
     "yargs": "^12.0.2"
   },
   "license": "MIT",
@@ -50,6 +55,8 @@
   },
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": ["src/**/*.js"]
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
   }
 }
