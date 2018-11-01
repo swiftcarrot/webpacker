@@ -6,6 +6,7 @@
   "bin": {
     "webpacker": "bin.js"
   },
+  "files": ["src", "*.js"],
   "scripts": {
     "test": "jest"
   },
