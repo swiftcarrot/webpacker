@@ -2,14 +2,12 @@
   "name": "webpacker-cli",
   "version": "0.6.2",
   "description": "webpacker-cli",
-  "main": "index.js",
+  "main": "src/index.js",
   "bin": {
-    "webpacker": "bin.js"
+    "webpacker": "src/bin.js"
   },
   "files": [
-    "src",
-    "bin.js",
-    "index.js"
+    "src"
   ],
   "scripts": {
     "test": "jest"

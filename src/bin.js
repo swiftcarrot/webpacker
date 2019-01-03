@@ -3,11 +3,11 @@
 const fs = require('fs');
 const path = require('path');
 const yargs = require('yargs');
-const init = require('./src/init');
-const clean = require('./src/clean');
-const watch = require('./src/watch');
-const build = require('./src/build');
-const serve = require('./src/serve');
+const init = require('./init');
+const clean = require('./clean');
+const watch = require('./watch');
+const build = require('./build');
+const serve = require('./serve');
 
 const configPath = path.resolve('webpacker.config.js');
 const userConfig = Object.assign(

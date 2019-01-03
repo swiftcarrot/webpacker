@@ -12,7 +12,7 @@
     "react-router-dom": "^4.2.2"
   },
   "scripts": {
-    "start": "NODE_ENV=development ../../bin.js watch",
-    "build": "NODE_ENV=production ../../bin.js build"
+    "start": "NODE_ENV=development ../../src/bin.js watch",
+    "build": "NODE_ENV=production ../../src/bin.js build"
   }
 }
