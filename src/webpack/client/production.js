@@ -1,8 +1,7 @@
 const merge = require('webpack-merge');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const sharedConfig = require('./shared');
-const uglify = require('../uglify');
 
 module.exports = merge(sharedConfig, {
   mode: 'production',
@@ -14,11 +13,28 @@ module.exports = merge(sharedConfig, {
 
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: uglify,
+      new TerserPlugin({
         parallel: true,
-        cache: true
-        // sourceMap: shouldUseSourceMap,
+        cache: true,
+        sourceMap: true,
+        terserOptions: {
+          parse: {
+            ecma: 8
+          },
+          compress: {
+            ecma: 5,
+            warnings: false,
+            comparisons: false
+          },
+          mangle: {
+            safari10: true
+          },
+          output: {
+            ecma: 5,
+            comments: false,
+            ascii_only: true
+          }
+        }
       }),
       new OptimizeCSSAssetsPlugin({})
     ],
