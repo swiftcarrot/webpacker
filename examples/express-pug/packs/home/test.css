@@ -13,3 +13,8 @@ h1 {
 img {
   width: 100px;
 }
+
+svg {
+  width: 100px;
+  fill: rebeccapurple;
+}
