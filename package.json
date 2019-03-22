@@ -1,6 +1,6 @@
 {
   "name": "webpacker-cli",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "webpacker-cli",
   "main": "src/index.js",
   "bin": {
