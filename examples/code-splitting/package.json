@@ -1,0 +1,15 @@
+{
+  "name": "code-splitting",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Wang Zuo <wzuoadjusted@gmail.com> (https://wangzuo.me/)",
+  "license": "MIT",
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-loadable": "^5.5.0",
+    "react-vis": "^1.11.6",
+    "react-vis-styles": "^0.3.1"
+  }
+}
