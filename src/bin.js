@@ -8,6 +8,7 @@ const clean = require('./clean');
 const watch = require('./watch');
 const build = require('./build');
 const serve = require('./serve');
+const analyze = require('./analyze');
 
 const configPath = path.resolve('webpacker.config.js');
 const userConfig = Object.assign(
@@ -38,5 +39,13 @@ yargs
     },
     argv => {
       serve(userConfig, argv.l);
+    }
+  )
+  .command(
+    'analyze',
+    'webpack analyze',
+    yargs => yargs.option('e', { default: 'production' }),
+    argv => {
+      analyze(userConfig, argv.l);
     }
   ).argv;

@@ -1,12 +1,7 @@
 {
   "groups": {
     "default": {
-      "packages": [
-        "examples/express-pug/package.json",
-        "examples/react-router-universal/package.json",
-        "examples/spa/package.json",
-        "package.json"
-      ]
+      "packages": ["package.json"]
     }
   }
 }
