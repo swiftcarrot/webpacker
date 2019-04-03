@@ -5,6 +5,7 @@ const sharedConfig = require('./shared');
 
 module.exports = merge(sharedConfig, {
   mode: 'production',
+
   output: {
     filename: 'packs/[name].[chunkhash:8].js',
     chunkFilename: 'packs/[name].[chunkhash:8].chunk.js',
@@ -12,6 +13,10 @@ module.exports = merge(sharedConfig, {
   },
 
   optimization: {
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: 'all'
+    },
     minimizer: [
       new TerserPlugin({
         parallel: true,
@@ -37,11 +42,7 @@ module.exports = merge(sharedConfig, {
         }
       }),
       new OptimizeCSSAssetsPlugin({})
-    ],
-    splitChunks: {
-      chunks: 'all'
-    },
-    runtimeChunk: true
+    ]
   }
   // devtool: 'source-map'
 });

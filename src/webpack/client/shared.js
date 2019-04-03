@@ -82,12 +82,5 @@ module.exports = {
     ]
   },
 
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    },
-    runtimeChunk: true
-  },
-
   plugins: plugins
 };

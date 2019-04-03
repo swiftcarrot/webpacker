@@ -1,11 +1,10 @@
-import moment from 'moment';
 import React from 'react';
-import { Link } from 'components';
+import { Link, Calendar } from 'components';
 
 const HomePage = () => {
   return (
     <div>
-      {moment().format()}
+      <Calendar />
       <Link to="/dashboard">dashboard</Link>
     </div>
   );

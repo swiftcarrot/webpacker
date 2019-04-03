@@ -1,23 +1,12 @@
 import React from 'react';
-import {
-  XYPlot,
-  HorizontalGridLines,
-  LineSeries,
-  XAxis,
-  YAxis
-} from 'react-vis';
-import RVStyles from 'react-vis-styles';
+import { Link, Chart } from 'components';
 
 const DashboardPage = () => {
   return (
     <div>
-      <RVStyles />
-      <XYPlot width={300} height={300}>
-        <HorizontalGridLines />
-        <LineSeries data={[{ x: 1, y: 10 }, { x: 2, y: 5 }, { x: 3, y: 15 }]} />
-        <XAxis />
-        <YAxis />
-      </XYPlot>
+      <Chart />
+      DashboardPage
+      <Link to="/">Back home</Link>
     </div>
   );
 };
