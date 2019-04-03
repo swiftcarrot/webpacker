@@ -19,6 +19,7 @@ yarn add webpacker-cli --dev
 webpacker serve -l http://localhost:5000
 webpacker watch
 webpacker build
+webpacker analyze
 ```
 
 ### License
