@@ -37,7 +37,7 @@ const plugins = [
 
 const indexHTML = path.join(appPath, 'packs/index.html');
 
-if (fs.existsSync(indexHTML)) {
+if (fs.existsSync(indexHTML) && !entry.index) {
   plugins.push(
     new HtmlWebpackPlugin({
       filename: 'index.html',

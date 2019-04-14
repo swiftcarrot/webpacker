@@ -1,0 +1,10 @@
+{
+  "name": "multiple-html",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Wang Zuo <wzuoadjusted@gmail.com> (https://wangzuo.me/)",
+  "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production ../../src/bin.js build"
+  }
+}
