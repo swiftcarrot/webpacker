@@ -77,7 +77,7 @@ module.exports = {
       require('./rules/module.css'),
       require('./rules/sass'),
       require('./rules/module.sass'),
-      require('./rules/babel.client'),
+      require('./rules/babel'),
       require('./rules/yaml')
     ]
   },

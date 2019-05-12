@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^4.2.0",
+    "@swiftcarrot/babel": "^0.5.0",
     "autoprefixer": "^9.5.0",
     "babel-preset-zkit": "^0.5.0",
     "css-loader": "^2.1.1",
