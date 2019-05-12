@@ -1,8 +1,11 @@
 {
-  "name": "webpacker-cli",
+  "name": "@swiftcarrot/webpacker",
   "version": "2.2.1",
-  "description": "webpacker-cli",
+  "description": "rails webpacker in node",
   "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "webpacker": "src/bin.js"
   },
@@ -13,9 +16,9 @@
     "test": "cd examples/spa && yarn build"
   },
   "dependencies": {
-    "@svgr/webpack": "^4.1.0",
+    "@svgr/webpack": "^4.2.0",
     "autoprefixer": "^9.5.0",
-    "babel-preset-zkit": "^0.4.0",
+    "babel-preset-zkit": "^0.5.0",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
@@ -23,7 +26,7 @@
     "html-webpack-plugin": "^4.0.0-beta.5",
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.6.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
@@ -31,7 +34,7 @@
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.29.6",
     "webpack-assets-manifest": "^3.1.1",
-    "webpack-bundle-analyzer": "^3.1.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2",
@@ -40,6 +43,6 @@
   },
   "license": "MIT",
   "author": "Wang Zuo <wzuoadjusted@gmail.com>",
-  "repository": "git@github.com:wangzuo/webpacker-cli.git",
+  "repository": "git@github.com:swiftcarrot/webpacker.git",
   "devDependencies": {}
 }

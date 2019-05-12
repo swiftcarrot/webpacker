@@ -1,16 +1,16 @@
 # webpacker
 
-[![npm](https://img.shields.io/npm/v/webpacker-cli.svg)](https://www.npmjs.com/package/webpacker-cli)
-[![npm](https://img.shields.io/npm/dm/webpacker-cli.svg)](https://www.npmjs.com/package/webpacker-cli)
-[![Build Status](https://travis-ci.org/wangzuo/webpacker.svg?branch=master)](https://travis-ci.org/wangzuo/webpacker)
-[![codecov](https://codecov.io/gh/wangzuo/webpacker/branch/master/graph/badge.svg)](https://codecov.io/gh/wangzuo/webpacker)
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Greenkeeper badge](https://badges.greenkeeper.io/wangzuo/webpacker.svg)](https://greenkeeper.io/)
+[![npm](https://img.shields.io/npm/v/@swiftcarrot/webpacker.svg)](https://www.npmjs.com/package/@swiftcarrot/webpacker)
+[![npm](https://img.shields.io/npm/dm/@swiftcarrot/webpacker.svg)](https://www.npmjs.com/package/@swiftcarrot/webpacker)
+[![Build Status](https://travis-ci.org/swiftcarrot/webpacker.svg?branch=master)](https://travis-ci.org/swiftcarrot/webpacker)
+[![codecov](https://codecov.io/gh/swiftcarrot/webpacker/branch/master/graph/badge.svg)](https://codecov.io/gh/swiftcarrot/webpacker)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Greenkeeper badge](https://badges.greenkeeper.io/swiftcarrot/webpacker.svg)](https://greenkeeper.io/)
 
 ### Install
 
 ```sh
-npm install webpacker-cli --save-dev
-yarn add webpacker-cli --dev
+npm install @swiftcarrot/webpacker --save-dev
+yarn add @swiftcarrot/webpacker --dev
 ```
 
 ### Usage
