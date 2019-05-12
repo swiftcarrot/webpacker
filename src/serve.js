@@ -5,8 +5,8 @@ const WebpackDevServer = require('webpack-dev-server');
 
 module.exports = function(userConfig, listen) {
   const clientConfig = userConfig.webpack.client
-    ? userConfig.webpack.client(require('./webpack/client'), null, webpack)
-    : require('./webpack/client');
+    ? userConfig.webpack.client(require('./webpack'), null, webpack)
+    : require('./webpack');
   // clientConfig.plugins.push(new FriendlyErrorsWebpackPlugin());
   const clientCompiler = webpack(clientConfig);
   const server = new WebpackDevServer(clientCompiler, {

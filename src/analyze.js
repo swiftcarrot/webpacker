@@ -3,8 +3,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = function(userConfig, cb) {
   const clientConfig = userConfig.webpack.client
-    ? userConfig.webpack.client(require('./webpack/client'), null, webpack)
-    : require('./webpack/client');
+    ? userConfig.webpack.client(require('./webpack'), null, webpack)
+    : require('./webpack');
 
   clientConfig.plugins.push(
     new BundleAnalyzerPlugin({ analyzerMode: 'static' })

@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { env, appPath } = require('../configuration');
+const { env, appPath } = require('./configuration');
 
 const entry = glob
   .sync(path.join(appPath, 'packs/*.js'))
@@ -72,13 +72,13 @@ module.exports = {
 
   module: {
     rules: [
-      require('../rules/assets'),
-      require('../rules/css'),
-      require('../rules/module.css'),
-      require('../rules/sass'),
-      require('../rules/module.sass'),
-      require('../rules/babel.client'),
-      require('../rules/yaml')
+      require('./rules/assets'),
+      require('./rules/css'),
+      require('./rules/module.css'),
+      require('./rules/sass'),
+      require('./rules/module.sass'),
+      require('./rules/babel.client'),
+      require('./rules/yaml')
     ]
   },
 

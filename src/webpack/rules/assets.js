@@ -1,4 +1,4 @@
-const { env } = require('../configuration.js');
+const { env } = require('../configuration');
 
 module.exports = {
   oneOf: [

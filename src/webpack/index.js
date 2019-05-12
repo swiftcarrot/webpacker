@@ -1,4 +1,4 @@
-const { env } = require('../configuration');
+const { env } = require('./configuration');
 
 module.exports =
   env.NODE_ENV === 'production'
