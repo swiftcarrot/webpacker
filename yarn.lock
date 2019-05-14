@@ -879,25 +879,6 @@
     "@svgr/plugin-svgo" "^4.2.0"
     loader-utils "^1.2.3"
 
-"@swiftcarrot/babel@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@swiftcarrot/babel/-/babel-0.5.0.tgz#ef539a2a9b478d8317cc65a21c224b0927af555d"
-  integrity sha512-y/84ysf9dnh9MJwHHV4HRtO2wjm1Y80KibQ2AYHzJn89Els8NMDtMhVPtRTK8ha95xTwNn0lnFcQyLkIc8oqPw==
-  dependencies:
-    "@babel/core" "^7.4.4"
-    "@babel/plugin-proposal-class-properties" "^7.4.4"
-    "@babel/plugin-proposal-export-default-from" "^7.2.0"
-    "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
-    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
-    "@babel/plugin-transform-runtime" "^7.4.4"
-    "@babel/preset-env" "^7.4.4"
-    "@babel/preset-react" "^7.0.0"
-    "@babel/runtime" "^7.4.4"
-    babel-loader "^8.0.5"
-    babel-plugin-emotion "^10.0.9"
-    babel-plugin-preval "^3.0.1"
-    babel-plugin-transform-react-remove-prop-types "^0.4.24"
-
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
@@ -1414,10 +1395,10 @@ babel-plugin-transform-react-remove-prop-types@^0.4.24:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
-babel-preset-zkit@^0.5.0:
+babel-preset-swiftcarrot@^0.5.0:
   version "0.5.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-zkit/-/babel-preset-zkit-0.5.0.tgz#a713c19e04afa86750d6779427894918ce6ab9b1"
-  integrity sha512-uLoQ0Luao1hBfHullsojYdvV6xTPsoQHmUmgzw37FbiGN9qObW+VczhZX01LvcriFWf7H2P01uclzSzMB/HgxA==
+  resolved "https://registry.yarnpkg.com/babel-preset-swiftcarrot/-/babel-preset-swiftcarrot-0.5.0.tgz#c7bfa254fa97059152a1b14c0653ff9810144812"
+  integrity sha512-Di8webu8nbghyEBXE3gA+0zn7MArIz7ATGgi3eduYYAAuLopSQYJvBsJDuTjZrJHkoN4Vm+yZSZUr43Y06427w==
   dependencies:
     "@babel/core" "^7.4.4"
     "@babel/plugin-proposal-class-properties" "^7.4.4"
