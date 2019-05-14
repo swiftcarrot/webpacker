@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development ../../src/bin.js serve",
-    "build": "NODE_ENV=production ../../src/bin.js build"
+    "watch": "NODE_ENV=development ../../src/bin.js watch",
+    "build": "NODE_ENV=production ../../src/bin.js build",
+    "analyze": "NODE_ENV=production ../../src/bin.js analyze"
   }
 }

@@ -1,14 +1,11 @@
 const { parse } = require('url');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-// const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const { makeConfig } = require('./utils');
 
-module.exports = function(userConfig, listen) {
-  const clientConfig = userConfig.webpack.client
-    ? userConfig.webpack.client(require('./webpack'), null, webpack)
-    : require('./webpack');
-  // clientConfig.plugins.push(new FriendlyErrorsWebpackPlugin());
-  const clientCompiler = webpack(clientConfig);
+module.exports = function(listen) {
+  const config = makeConfig();
+  const clientCompiler = webpack(config);
   const server = new WebpackDevServer(clientCompiler, {
     historyApiFallback: true
   });

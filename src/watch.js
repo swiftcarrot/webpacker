@@ -1,14 +1,11 @@
 const webpack = require('webpack');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const { makeConfig } = require('./utils');
 
-module.exports = function(userConfig) {
-  const clientConfig = userConfig.webpack.client
-    ? userConfig.webpack.client(require('./webpack'), null, webpack)
-    : require('./webpack');
+module.exports = function() {
+  const config = makeConfig();
+  config.plugins.push(new FriendlyErrorsWebpackPlugin());
+  const compiler = webpack(config);
 
-  clientConfig.plugins.push(new FriendlyErrorsWebpackPlugin());
-
-  const clientCompiler = webpack(clientConfig);
-
-  clientCompiler.watch({}, () => {});
+  compiler.watch({}, () => {});
 };
