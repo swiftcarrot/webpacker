@@ -1,9 +1,9 @@
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const sharedConfig = require('./shared');
+const shared = require('./shared');
 
-module.exports = merge(sharedConfig, {
+module.exports = merge(shared(), {
   mode: 'production',
 
   output: {

@@ -13,7 +13,7 @@
     "src"
   ],
   "scripts": {
-    "test": "cd examples/spa && yarn build"
+    "test": "cd examples/code-splitting && yarn build"
   },
   "dependencies": {
     "@svgr/webpack": "^4.2.0",

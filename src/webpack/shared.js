@@ -5,69 +5,69 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const rules = require('../rules');
-const { getDirectory, isProd } = require('../utils');
+const { getDirectory, isProd, makeConfig } = require('../utils');
 
-const cwd = getDirectory();
-const entry = glob.sync(path.join(cwd, 'packs/*.js')).reduce((entry, pack) => {
-  entry[path.basename(pack, '.js')] = pack;
-  return entry;
-}, {});
+module.exports = () => {
+  const cwd = getDirectory();
+  const { entryPath, outputPath, manifestOutputPath } = makeConfig();
+  const entry = glob
+    .sync(path.join(entryPath, '*.js'))
+    .reduce((entry, pack) => {
+      entry[path.basename(pack, '.js')] = pack;
+      return entry;
+    }, {});
 
-const plugins = [
-  new MiniCssExtractPlugin({
-    filename: isProd()
-      ? 'packs/[name].[contenthash:8].css'
-      : 'packs/[name].css',
-    chunkFilename: isProd()
-      ? 'packs/[name].[contenthash:8].chunk.css'
-      : 'packs/[name].chunk.css'
-  }),
+  const plugins = [
+    new MiniCssExtractPlugin({
+      filename: isProd()
+        ? 'packs/[name].[contenthash:8].css'
+        : 'packs/[name].css',
+      chunkFilename: isProd()
+        ? 'packs/[name].[contenthash:8].chunk.css'
+        : 'packs/[name].chunk.css'
+    }),
 
-  new WebpackAssetsManifest({
-    output: 'assets-manifest.json',
-    entrypoints: true,
-    publicPath: true
-  })
-];
-
-const indexHTML = path.join(cwd, 'packs/index.html');
-
-if (fs.existsSync(indexHTML) && !entry.index) {
-  plugins.push(
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      minify: true,
-      template: indexHTML
+    new WebpackAssetsManifest({
+      output: manifestOutputPath,
+      entrypoints: true,
+      publicPath: true,
+      writeToDisk: true
     })
-  );
-} else {
-  Object.keys(entry).forEach(k => {
-    const templatePath = path.join(cwd, `packs/${k}.html`);
-    if (fs.existsSync(templatePath)) {
-      plugins.push(
-        new HtmlWebpackPlugin({
-          filename: `${k}.html`,
-          minify: true,
-          chunks: [k],
-          template: templatePath
-        })
-      );
-    }
-  });
-}
+  ];
 
-module.exports = {
-  entry: entry,
+  const indexHTML = path.join(cwd, 'packs/index.html');
 
-  output: {
-    path: path.join(cwd, 'build')
-  },
+  if (fs.existsSync(indexHTML) && !entry.index) {
+    plugins.push(
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        minify: true,
+        template: indexHTML
+      })
+    );
+  } else {
+    Object.keys(entry).forEach(k => {
+      const templatePath = path.join(cwd, `packs/${k}.html`);
+      if (fs.existsSync(templatePath)) {
+        plugins.push(
+          new HtmlWebpackPlugin({
+            filename: `${k}.html`,
+            minify: true,
+            chunks: [k],
+            template: templatePath
+          })
+        );
+      }
+    });
+  }
 
-  performance: { hints: false },
+  const wepbackConfig = {
+    entry,
+    output: { path: outputPath },
+    performance: { hints: false },
+    module: { rules },
+    plugins
+  };
 
-  module: {
-    rules
-  },
-
-  plugins: plugins
+  return wepbackConfig;
 };

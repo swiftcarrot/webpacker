@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
-const sharedConfig = require('./shared');
+const shared = require('./shared');
 
-module.exports = merge(sharedConfig, {
+module.exports = merge(shared(), {
   mode: 'development',
   output: {
     filename: 'packs/[name].js',

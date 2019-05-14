@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const { makeConfig } = require('./utils');
+const { makeWebpackConfig } = require('./utils');
 
 module.exports = function() {
-  const config = makeConfig();
+  const config = makeWebpackConfig();
   config.plugins.push(new FriendlyErrorsWebpackPlugin());
   const compiler = webpack(config);
 

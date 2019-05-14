@@ -2,17 +2,37 @@ const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 
-exports.makeConfig = () => {
+const getDirectory = () => fs.realpathSync(process.cwd());
+
+const makeConfig = () => {
+  const cwd = getDirectory();
   const configPath = path.resolve('webpacker.config.js');
   const userConfig = fs.existsSync(configPath) ? require(configPath) : null;
-  const config = userConfig
-    ? userConfig(require('./webpack'), { webpack })
-    : require('./webpack');
+  const config = Object.assign(
+    {
+      entryPath: path.join(cwd, 'packs'),
+      outputPath: path.join(cwd, 'build'),
+      manifestOutputPath: 'assets-manifest.json'
+    },
+    userConfig
+  );
 
   return config;
 };
 
-exports.getDirectory = () => fs.realpathSync(process.cwd());
+exports.makeConfig = makeConfig;
+
+exports.makeWebpackConfig = () => {
+  const config = makeConfig();
+  const webpackConfig =
+    config && config.webpack
+      ? config.webpack(require('./webpack'), { webpack })
+      : require('./webpack');
+
+  return webpackConfig;
+};
+
+exports.getDirectory = getDirectory;
 
 exports.getEnv = () => process.env.NODE_ENV;
 
