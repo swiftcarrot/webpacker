@@ -1,6 +1,6 @@
 {
   "name": "@swiftcarrot/webpacker",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "rails webpacker in node",
   "main": "src/index.js",
   "publishConfig": {
