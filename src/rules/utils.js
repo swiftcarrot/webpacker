@@ -1,9 +1,9 @@
 const loaderUtils = require('loader-utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
-const { isProd } = require('../../utils');
+const { isProd } = require('../utils');
 
-exports.getStyleLoaders = function getStyleLoaders(cssOptions, preProcessor) {
+exports.getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
     isProd() ? MiniCssExtractPlugin.loader : require.resolve('style-loader'),
     {
@@ -31,12 +31,12 @@ exports.getStyleLoaders = function getStyleLoaders(cssOptions, preProcessor) {
   return loaders;
 };
 
-exports.getCSSModuleLocalIdent = function(
+exports.getCSSModuleLocalIdent = (
   context,
   localIdentName,
   localName,
   options
-) {
+) => {
   const fileNameOrFolder = context.resourcePath.match(
     /index\.module\.(css|scss|sass)$/
   )

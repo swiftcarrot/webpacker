@@ -1,4 +1,4 @@
-const { isProd } = require('../../utils');
+const { isProd } = require('../utils');
 
 module.exports = {
   oneOf: [

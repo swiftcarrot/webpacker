@@ -4,10 +4,10 @@ const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { getDirectory, getEnv } = require('../utils');
+const rules = require('../rules');
+const { getDirectory, isProd } = require('../utils');
 
 const cwd = getDirectory();
-const env = getEnv();
 const entry = glob.sync(path.join(cwd, 'packs/*.js')).reduce((entry, pack) => {
   entry[path.basename(pack, '.js')] = pack;
   return entry;
@@ -15,14 +15,12 @@ const entry = glob.sync(path.join(cwd, 'packs/*.js')).reduce((entry, pack) => {
 
 const plugins = [
   new MiniCssExtractPlugin({
-    filename:
-      env === 'production'
-        ? 'packs/[name].[contenthash:8].css'
-        : 'packs/[name].css',
-    chunkFilename:
-      env === 'production'
-        ? 'packs/[name].[contenthash:8].chunk.css'
-        : 'packs/[name].chunk.css'
+    filename: isProd()
+      ? 'packs/[name].[contenthash:8].css'
+      : 'packs/[name].css',
+    chunkFilename: isProd()
+      ? 'packs/[name].[contenthash:8].chunk.css'
+      : 'packs/[name].chunk.css'
   }),
 
   new WebpackAssetsManifest({
@@ -68,15 +66,7 @@ module.exports = {
   performance: { hints: false },
 
   module: {
-    rules: [
-      require('./rules/assets'),
-      require('./rules/css'),
-      require('./rules/module.css'),
-      require('./rules/sass'),
-      require('./rules/module.sass'),
-      require('./rules/babel'),
-      require('./rules/yaml')
-    ]
+    rules
   },
 
   plugins: plugins

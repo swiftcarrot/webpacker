@@ -1,6 +1,3 @@
-const { getEnv } = require('../utils');
+const { isProd } = require('../utils');
 
-module.exports =
-  getEnv() === 'production'
-    ? require('./production')
-    : require('./development');
+module.exports = isProd() ? require('./production') : require('./development');
