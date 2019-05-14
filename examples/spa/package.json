@@ -4,7 +4,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development ../../src/bin.js serve",
+    "serve": "NODE_ENV=development ../../src/bin.js serve",
     "watch": "NODE_ENV=development ../../src/bin.js watch",
     "build": "NODE_ENV=production ../../src/bin.js build",
     "analyze": "NODE_ENV=production ../../src/bin.js analyze"

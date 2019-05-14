@@ -1,6 +1,6 @@
-const { env } = require('./configuration');
+const { getEnv } = require('../utils');
 
 module.exports =
-  env.NODE_ENV === 'production'
+  getEnv() === 'production'
     ? require('./production')
     : require('./development');

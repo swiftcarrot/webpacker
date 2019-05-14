@@ -1,29 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { env, appPath } = require('./configuration');
+const { getDirectory, getEnv } = require('../utils');
 
-const entry = glob
-  .sync(path.join(appPath, 'packs/*.js'))
-  .reduce((entry, pack) => {
-    entry[path.basename(pack, '.js')] = pack;
-    return entry;
-  }, {});
+const cwd = getDirectory();
+const env = getEnv();
+const entry = glob.sync(path.join(cwd, 'packs/*.js')).reduce((entry, pack) => {
+  entry[path.basename(pack, '.js')] = pack;
+  return entry;
+}, {});
 
 const plugins = [
-  new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
-
   new MiniCssExtractPlugin({
     filename:
-      env.NODE_ENV === 'production'
+      env === 'production'
         ? 'packs/[name].[contenthash:8].css'
         : 'packs/[name].css',
     chunkFilename:
-      env.NODE_ENV === 'production'
+      env === 'production'
         ? 'packs/[name].[contenthash:8].chunk.css'
         : 'packs/[name].chunk.css'
   }),
@@ -35,7 +32,7 @@ const plugins = [
   })
 ];
 
-const indexHTML = path.join(appPath, 'packs/index.html');
+const indexHTML = path.join(cwd, 'packs/index.html');
 
 if (fs.existsSync(indexHTML) && !entry.index) {
   plugins.push(
@@ -47,7 +44,7 @@ if (fs.existsSync(indexHTML) && !entry.index) {
   );
 } else {
   Object.keys(entry).forEach(k => {
-    const templatePath = path.join(appPath, `packs/${k}.html`);
+    const templatePath = path.join(cwd, `packs/${k}.html`);
     if (fs.existsSync(templatePath)) {
       plugins.push(
         new HtmlWebpackPlugin({
@@ -65,7 +62,7 @@ module.exports = {
   entry: entry,
 
   output: {
-    path: path.join(appPath, 'build')
+    path: path.join(cwd, 'build')
   },
 
   performance: { hints: false },

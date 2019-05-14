@@ -1,4 +1,4 @@
-const { env } = require('../configuration');
+const { isProd } = require('../../utils');
 
 module.exports = {
   oneOf: [
@@ -13,10 +13,9 @@ module.exports = {
         {
           loader: require.resolve('file-loader'),
           options: {
-            name:
-              env.NODE_ENV === 'production' // todo: env fix
-                ? 'packs/[name].[hash:8].[ext]'
-                : 'packs/[name].[ext]'
+            name: isProd()
+              ? 'packs/[name].[hash:8].[ext]'
+              : 'packs/[name].[ext]'
           }
         }
       ]

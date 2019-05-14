@@ -11,3 +11,9 @@ exports.makeConfig = () => {
 
   return config;
 };
+
+exports.getDirectory = () => fs.realpathSync(process.cwd());
+
+exports.getEnv = () => process.env.NODE_ENV;
+
+exports.isProd = () => process.env.NODE_ENV === 'production';

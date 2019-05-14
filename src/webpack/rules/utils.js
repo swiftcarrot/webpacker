@@ -1,13 +1,11 @@
 const loaderUtils = require('loader-utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
-const { env } = require('../configuration.js');
+const { isProd } = require('../../utils');
 
 exports.getStyleLoaders = function getStyleLoaders(cssOptions, preProcessor) {
   const loaders = [
-    env.NODE_ENV === 'production'
-      ? MiniCssExtractPlugin.loader
-      : require.resolve('style-loader'),
+    isProd() ? MiniCssExtractPlugin.loader : require.resolve('style-loader'),
     {
       loader: require.resolve('css-loader'),
       options: cssOptions
@@ -49,7 +47,7 @@ exports.getCSSModuleLocalIdent = function(
     .replace(new RegExp('[^a-zA-Z0-9\\-_\u00A0-\uFFFF]', 'g'), '-')
     .replace(/^((-?[0-9])|--)/, '_$1');
 
-  if (env.NODE_ENV === 'production') {
+  if (isProd()) {
     return hash;
   }
 
