@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
+const webpack = require('wepback');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -18,6 +19,7 @@ module.exports = () => {
     }, {});
 
   const plugins = [
+    new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(process.env))),
     new MiniCssExtractPlugin({
       filename: isProd()
         ? 'packs/[name].[contenthash:8].css'
