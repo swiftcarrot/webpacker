@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const webpack = require('wepback');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -63,7 +63,7 @@ module.exports = () => {
     });
   }
 
-  const wepbackConfig = {
+  const webpackConfig = {
     entry,
     output: { path: outputPath },
     performance: { hints: false },
@@ -71,5 +71,5 @@ module.exports = () => {
     plugins
   };
 
-  return wepbackConfig;
+  return webpackConfig;
 };
