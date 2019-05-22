@@ -16,10 +16,12 @@
     "test": "cd examples/code-splitting && yarn build"
   },
   "dependencies": {
+    "@babel/core": "^7.4.5",
     "@svgr/webpack": "^4.2.0",
     "@swiftcarrot/yaml-loader": "^0.2.1",
     "autoprefixer": "^9.5.0",
-    "babel-preset-swiftcarrot": "^0.6.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-swiftcarrot": "^0.7.0",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
