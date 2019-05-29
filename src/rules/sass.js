@@ -7,7 +7,10 @@ module.exports = {
     { importLoaders: 2 },
     {
       loader: require.resolve('sass-loader'),
-      options: { sourceMap: true }
+      options: {
+        implementation: require('sass'),
+        sourceMap: true
+      }
     }
   )
 };
