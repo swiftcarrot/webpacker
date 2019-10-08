@@ -40,7 +40,7 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1",
-    "yargs": "^13.2.2"
+    "yargs": "^14.2.0"
   },
   "license": "MIT",
   "author": "Wang Zuo <wzuoadjusted@gmail.com>",
