@@ -29,7 +29,8 @@ module.exports = merge(shared(), {
           compress: {
             ecma: 5,
             warnings: false,
-            comparisons: false
+            comparisons: false,
+            drop_console: true
           },
           mangle: {
             safari10: true
