@@ -13,9 +13,7 @@ module.exports = {
         {
           loader: require.resolve('file-loader'),
           options: {
-            name: isProd()
-              ? 'packs/[name].[hash:8].[ext]'
-              : 'packs/[name].[ext]'
+            name: 'packs/[name].[hash:8].[ext]'
           }
         }
       ]
