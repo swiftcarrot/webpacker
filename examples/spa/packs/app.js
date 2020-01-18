@@ -1,6 +1,9 @@
 import './global.scss';
 import { en } from '../locales/en.yml';
 import { zh } from '../locales/zh.yml';
+import config from './config.toml';
+
+console.log(config);
 
 const el = document.getElementById('app');
 const locales = { en, zh };

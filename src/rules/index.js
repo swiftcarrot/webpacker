@@ -5,5 +5,6 @@ module.exports = [
   require('./sass'),
   require('./module.sass'),
   require('./babel'),
-  require('./yaml')
+  require('./yaml'),
+  require('./toml')
 ];
