@@ -5,8 +5,9 @@ module.exports = {
   use: getStyleLoaders(
     {
       importLoaders: 2,
-      modules: true,
-      getLocalIdent: getCSSModuleLocalIdent
+      modules: {
+        getLocalIdent: getCSSModuleLocalIdent
+      }
     },
     {
       loader: require.resolve('sass-loader'),

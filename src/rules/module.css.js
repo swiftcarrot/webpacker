@@ -4,7 +4,8 @@ module.exports = {
   test: /\.module\.css$/,
   use: getStyleLoaders({
     importLoaders: 1,
-    modules: true,
-    getLocalIdent: getCSSModuleLocalIdent
+    modules: {
+      getLocalIdent: getCSSModuleLocalIdent
+    }
   })
 };
