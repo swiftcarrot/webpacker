@@ -1,9 +1,13 @@
+import './global.css';
 import './global.scss';
 import { en } from '../locales/en.yml';
 import { zh } from '../locales/zh.yml';
 import config from './config.toml';
+import styles1 from './styles.module.css';
+import styles2 from './styles.module.scss';
 
 console.log(config);
+console.log({ styles1, styles2 });
 
 const el = document.getElementById('app');
 const locales = { en, zh };
