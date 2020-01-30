@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## 2.7.1
+
+- add changelog
+
 ## 2.7.0
 
 - replace `autoprefixer` with `postcss-preset-env`
