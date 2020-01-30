@@ -16,4 +16,6 @@ const locale = locales[lang === 'en' ? 'en' : 'zh'];
 
 console.log('locale', locale);
 
-el.innerHTML = `<h1>${locale.hello} ${window.location.pathname.substr(1)}</h1>`;
+el.innerHTML = `<h1 class="test">${
+  locale.hello
+} ${window.location.pathname.substr(1)}</h1>`;

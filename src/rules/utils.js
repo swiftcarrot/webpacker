@@ -1,6 +1,5 @@
 const loaderUtils = require('loader-utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 const { isProd } = require('../utils');
 
 exports.getStyleLoaders = (cssOptions, preProcessor) => {
