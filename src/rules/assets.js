@@ -1,5 +1,3 @@
-const { isProd } = require('../utils');
-
 module.exports = {
   oneOf: [
     {
@@ -13,7 +11,8 @@ module.exports = {
         {
           loader: require.resolve('file-loader'),
           options: {
-            name: 'packs/[name].[hash:8].[ext]'
+            name: 'packs/[name].[hash:8].[ext]',
+            esModule: false
           }
         }
       ]

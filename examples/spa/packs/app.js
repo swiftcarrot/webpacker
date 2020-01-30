@@ -18,4 +18,6 @@ console.log('locale', locale);
 
 el.innerHTML = `<h1 class="test">${
   locale.hello
-} ${window.location.pathname.substr(1)}</h1>`;
+} ${window.location.pathname.substr(
+  1
+)}</h1> <img src=${require('./test.png')}/>`;
