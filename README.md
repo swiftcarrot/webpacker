@@ -24,14 +24,17 @@ webpacker analyze
 
 ### Features
 
-- `.js` with [babel-preset-swiftcarrot](https://github.com/swiftcarrot/babel-preset-swiftcarrot)
-- `.css`
-- `.module.css` css module
-- `.(scss|sass)` with [sass-loader](https://github.com/webpack-contrib/sass-loader)
-- `.module.(scss|sass)` css module with sass
-- `.yaml` with [@swiftcarrot/yaml-loader](https://github.com/swiftcarrot/yaml-loader)
-- `.(jpg|jpeg|png|gif|svg|eot|ttf|woff|woff2)` with [file-loader](https://github.com/webpack-contrib/file-loader)
-- `icons/*.svg` with [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack)
+- multiple entries support (`packs/*.js`)
+- zero config
+  - `.js` with [babel-preset-swiftcarrot](https://github.com/swiftcarrot/babel-preset-swiftcarrot)
+  - `.css`
+  - `.module.css` css module
+  - `.(scss|sass)` with [sass-loader](https://github.com/webpack-contrib/sass-loader)
+  - `.module.(scss|sass)` css module with sass
+  - `.yaml` with [@swiftcarrot/yaml-loader](https://github.com/swiftcarrot/yaml-loader)
+  - `.toml` with [toml-laoder](https://github.com/KyleAMathews/toml-loader)
+  - `.(jpg|jpeg|png|gif|svg|eot|ttf|woff|woff2)` with [file-loader](https://github.com/webpack-contrib/file-loader)
+  - `icons/*.svg` with [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack)
 
 ### License
 
