@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## 2.8.0
+
+- upgrade deps
+- set `file-loader` esModule to false
+
 ## 2.7.1
 
 - add changelog
