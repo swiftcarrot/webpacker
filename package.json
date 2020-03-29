@@ -22,7 +22,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-swiftcarrot": "^1.1.0",
     "css-loader": "^3.4.2",
-    "file-loader": "^5.0.2",
+    "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "glob": "^7.1.6",
     "html-webpack-plugin": "^4.0.3",
