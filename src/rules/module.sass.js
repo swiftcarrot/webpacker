@@ -4,7 +4,7 @@ module.exports = {
   test: /\.module\.(scss|sass)$/,
   use: getStyleLoaders(
     {
-      importLoaders: 2,
+      importLoaders: 3,
       modules: {
         getLocalIdent: getCSSModuleLocalIdent
       }

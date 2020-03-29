@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## 2.8.1
+
+- upgrade `html-webpack-plugin`
+- update `getCSSModuleLocalIdent`
+- fix importing css modules from file like `login.page.module.css`
+- `importLoaders` fix
+
 ## 2.8.0
 
 - upgrade deps
