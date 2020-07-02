@@ -6,7 +6,7 @@ module.exports = merge(shared(), {
   output: {
     filename: 'packs/[name].js',
     chunkFilename: 'packs/[name].js',
-    publicPath: '/'
+    publicPath: '/',
   },
-  devtool: 'eval'
+  devtool: 'eval',
 });

@@ -9,8 +9,8 @@ module.exports = {
       loader: require.resolve('sass-loader'),
       options: {
         implementation: require('sass'),
-        sourceMap: true
-      }
+        sourceMap: true,
+      },
     }
-  )
+  ),
 };

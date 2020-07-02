@@ -9,13 +9,13 @@ module.exports = merge(shared(), {
   output: {
     filename: 'packs/[name].[chunkhash:8].js',
     chunkFilename: 'packs/[name].[chunkhash:8].chunk.js',
-    publicPath: '/'
+    publicPath: '/',
   },
 
   optimization: {
     runtimeChunk: true,
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
     },
     minimizer: [
       new TerserPlugin({
@@ -24,26 +24,26 @@ module.exports = merge(shared(), {
         sourceMap: true,
         terserOptions: {
           parse: {
-            ecma: 8
+            ecma: 8,
           },
           compress: {
             ecma: 5,
             warnings: false,
             comparisons: false,
-            drop_console: true
+            drop_console: true,
           },
           mangle: {
-            safari10: true
+            safari10: true,
           },
           output: {
             ecma: 5,
             comments: false,
-            ascii_only: true
-          }
-        }
+            ascii_only: true,
+          },
+        },
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
-  }
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  },
   // devtool: 'source-map'
 });

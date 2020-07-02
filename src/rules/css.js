@@ -4,6 +4,6 @@ module.exports = {
   test: /\.css$/,
   exclude: /\.module\.css$/,
   use: getStyleLoaders({
-    importLoaders: 1
-  })
+    importLoaders: 1,
+  }),
 };

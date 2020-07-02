@@ -12,7 +12,7 @@ const makeConfig = () => {
     {
       entryPath: path.join(cwd, 'packs'),
       outputPath: path.join(cwd, 'build'),
-      manifestOutputPath: 'assets-manifest.json'
+      manifestOutputPath: 'assets-manifest.json',
     },
     userConfig
   );

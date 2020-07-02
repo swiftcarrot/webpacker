@@ -11,7 +11,7 @@ exports.getStyleLoaders = (cssOptions, preProcessor) => {
     isProd() ? MiniCssExtractPlugin.loader : require.resolve('style-loader'),
     {
       loader: require.resolve('css-loader'),
-      options: cssOptions
+      options: cssOptions,
     },
     {
       loader: require.resolve('postcss-loader'),
@@ -21,13 +21,13 @@ exports.getStyleLoaders = (cssOptions, preProcessor) => {
         plugins: () => [
           require('postcss-preset-env')({
             autoprefixer: {
-              flexbox: 'no-2009'
+              flexbox: 'no-2009',
             },
-            stage: 3
-          })
-        ]
-      }
-    }
+            stage: 3,
+          }),
+        ],
+      },
+    },
   ];
 
   if (preProcessor) {
@@ -40,7 +40,7 @@ exports.getStyleLoaders = (cssOptions, preProcessor) => {
 //
 // https://github.com/facebook/create-react-app/blob/master/packages/react-dev-utils/getCSSModuleLocalIdent.js
 //
-exports.getCSSModuleLocalIdent = function(
+exports.getCSSModuleLocalIdent = function (
   context,
   localIdentName,
   localName,
