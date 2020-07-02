@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## 3.0.0
+
+- add `webpacker dev-server`
+- add public directory support
+
 ## 2.8.1
 
 - upgrade `html-webpack-plugin`
