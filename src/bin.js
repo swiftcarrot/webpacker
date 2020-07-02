@@ -5,7 +5,7 @@ const init = require('./init');
 const clean = require('./clean');
 const watch = require('./watch');
 const build = require('./build');
-const serve = require('./serve');
+const devServer = require('./dev-server');
 const analyze = require('./analyze');
 
 yargs
@@ -34,13 +34,23 @@ yargs
     (argv) => build(argv)
   )
   .command(
-    'serve',
-    'webpack serve',
+    'dev-server',
+    'webpack dev-server',
     (yargs) => {
       yargs.option('l', { default: 'http://127.0.0.1:3000' });
     },
     (argv) => {
-      serve(argv.l);
+      devServer(argv.l);
+    }
+  )
+  .command(
+    'serve',
+    'webpack dev-server',
+    (yargs) => {
+      yargs.option('l', { default: 'http://127.0.0.1:3000' });
+    },
+    (argv) => {
+      devServer(argv.l);
     }
   )
   .command(
