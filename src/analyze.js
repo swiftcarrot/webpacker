@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { makeWebpackConfig } = require('./utils');
 
-module.exports = function() {
+module.exports = function () {
   const config = makeWebpackConfig();
   config.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }));
 

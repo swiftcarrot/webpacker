@@ -1,4 +1,4 @@
 module.exports = {
   test: /\.toml$/,
-  use: require.resolve('toml-loader')
+  use: require.resolve('toml-loader'),
 };

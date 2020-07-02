@@ -26,15 +26,15 @@ module.exports = () => {
         : 'packs/[name].css',
       chunkFilename: isProd()
         ? 'packs/[name].[contenthash:8].chunk.css'
-        : 'packs/[name].chunk.css'
+        : 'packs/[name].chunk.css',
     }),
 
     new WebpackAssetsManifest({
       output: manifestOutputPath,
       entrypoints: true,
       publicPath: true,
-      writeToDisk: true
-    })
+      writeToDisk: true,
+    }),
   ];
 
   const indexHTML = path.join(cwd, 'packs/index.html');
@@ -44,11 +44,11 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         filename: 'index.html',
         minify: true,
-        template: indexHTML
+        template: indexHTML,
       })
     );
   } else {
-    Object.keys(entry).forEach(k => {
+    Object.keys(entry).forEach((k) => {
       const templatePath = path.join(cwd, `packs/${k}.html`);
       if (fs.existsSync(templatePath)) {
         plugins.push(
@@ -56,7 +56,7 @@ module.exports = () => {
             filename: `${k}.html`,
             minify: true,
             chunks: [k],
-            template: templatePath
+            template: templatePath,
           })
         );
       }
@@ -68,7 +68,7 @@ module.exports = () => {
     output: { path: outputPath },
     performance: { hints: false },
     module: { rules },
-    plugins
+    plugins,
   };
 
   return webpackConfig;

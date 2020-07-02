@@ -2,7 +2,7 @@ module.exports = {
   oneOf: [
     {
       test: /icons\/.*.\.svg$/,
-      use: [{ loader: require.resolve('@svgr/webpack') }]
+      use: [{ loader: require.resolve('@svgr/webpack') }],
     },
 
     {
@@ -12,10 +12,10 @@ module.exports = {
           loader: require.resolve('file-loader'),
           options: {
             name: 'packs/[name].[hash:8].[ext]',
-            esModule: false
-          }
-        }
-      ]
-    }
-  ]
+            esModule: false,
+          },
+        },
+      ],
+    },
+  ],
 };

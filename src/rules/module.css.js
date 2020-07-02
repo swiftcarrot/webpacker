@@ -5,7 +5,7 @@ module.exports = {
   use: getStyleLoaders({
     importLoaders: 1,
     modules: {
-      getLocalIdent: getCSSModuleLocalIdent
-    }
-  })
+      getLocalIdent: getCSSModuleLocalIdent,
+    },
+  }),
 };

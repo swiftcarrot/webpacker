@@ -1,6 +1,4 @@
-// todo
-// clean build assets
-
+// TODO clean build directory
 module.exports = () => {
   console.log('cleaning...');
 };

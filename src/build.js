@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const { makeWebpackConfig } = require('./utils');
 
-module.exports = function() {
+module.exports = function () {
   const config = makeWebpackConfig();
 
   webpack(config, (err, stats) => {

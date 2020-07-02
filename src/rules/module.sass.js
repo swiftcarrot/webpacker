@@ -6,15 +6,15 @@ module.exports = {
     {
       importLoaders: 3,
       modules: {
-        getLocalIdent: getCSSModuleLocalIdent
-      }
+        getLocalIdent: getCSSModuleLocalIdent,
+      },
     },
     {
       loader: require.resolve('sass-loader'),
       options: {
         implementation: require('sass'),
-        sourceMap: true
-      }
+        sourceMap: true,
+      },
     }
-  )
+  ),
 };
