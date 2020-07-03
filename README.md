@@ -16,7 +16,7 @@ yarn add @swiftcarrot/webpacker --dev
 ### Usage
 
 ```sh
-webpacker serve -l http://localhost:5000
+webpacker dev-server -l http://localhost:5000
 webpacker watch
 webpacker build
 webpacker analyze
@@ -24,7 +24,7 @@ webpacker analyze
 
 ### Features
 
-- multiple entries support (`packs/*.js`)
+- multiple entries support (`packs/*.js`, `packs/*.html`)
 - zero config
   - `.js` with [babel-preset-swiftcarrot](https://github.com/swiftcarrot/babel-preset-swiftcarrot)
   - `.css`
@@ -35,6 +35,7 @@ webpacker analyze
   - `.toml` with [toml-laoder](https://github.com/KyleAMathews/toml-loader)
   - `.(jpg|jpeg|png|gif|svg|eot|ttf|woff|woff2)` with [file-loader](https://github.com/webpack-contrib/file-loader)
   - `icons/*.svg` with [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack)
+- custom webpack config through `webpacker.config.js`
 
 ### License
 
