@@ -4,6 +4,7 @@
 
 - use `cheap-module-source-map` for devtool in dev
 - upgrade deps
+- fix build error when public directory missing
 
 ## 3.0.0
 
