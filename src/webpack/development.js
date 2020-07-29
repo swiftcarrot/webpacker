@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const shared = require('./shared');
 
 module.exports = merge(shared(), {
@@ -8,5 +8,5 @@ module.exports = merge(shared(), {
     chunkFilename: 'packs/[name].js',
     publicPath: '/',
   },
-  devtool: 'eval',
+  devtool: 'cheap-module-source-map',
 });

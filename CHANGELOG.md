@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- use `cheap-module-source-map` for devtool in dev
+- upgrade deps
+
 ## 3.0.0
 
 - add `webpacker dev-server`
