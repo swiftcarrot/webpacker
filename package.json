@@ -1,6 +1,6 @@
 {
   "name": "@swiftcarrot/webpacker",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "rails webpacker in node",
   "main": "src/index.js",
   "author": "Wang Zuo <wangzuo@swiftcarrot.com> (https://swiftcarrot.com)",
