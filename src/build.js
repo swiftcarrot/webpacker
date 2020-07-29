@@ -11,6 +11,9 @@ module.exports = function () {
     if (err) console.error(err);
     console.log(stats.toString({ chunks: false, colors: true }));
 
-    fs.copySync(path.join(cwd, 'public'), path.join(cwd, 'build'));
+    const publicDir = path.join(cwd, 'public');
+    if (fs.pathExistsSync(publicDir)) {
+      fs.copySync(publicDir, path.join(cwd, 'build'));
+    }
   });
 };
