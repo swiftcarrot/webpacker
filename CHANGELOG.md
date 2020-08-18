@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+- remove multiple entries support with packs (default as `src/index.js`)
+- support alias with `/src` directory
+
 ## 3.0.1
 
 - use `cheap-module-source-map` for devtool in dev
