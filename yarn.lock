@@ -1997,13 +1997,6 @@
     "@svgr/plugin-svgo" "^5.4.0"
     loader-utils "^2.0.0"
 
-"@swiftcarrot/yaml-loader@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@swiftcarrot/yaml-loader/-/yaml-loader-0.2.2.tgz#8fc16a6260ccfffe3b5fd6817c9bb7bd6906e4ad"
-  integrity sha512-BG5nIoJ3tqdeLPL4+940i3H4UKyQDxh0AMctj9st3Cap9QATOqjk/WsD9QR/JFQkeHmAmGFtZewQ1an9g7IjLw==
-  dependencies:
-    yaml "^1.6.0"
-
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"

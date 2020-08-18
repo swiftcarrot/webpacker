@@ -1,0 +1,29 @@
+{
+  "name": "@swiftcarrot/yaml-loader",
+  "version": "0.2.2",
+  "description": "yaml loader",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "index.js"
+  ],
+  "author": "Wang Zuo <wzuoadjusted@gmail.com> (https://wangzuo.me/)",
+  "license": "MIT",
+  "dependencies": {
+    "yaml": "^1.6.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swiftcarrot/yaml-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/swiftcarrot/yaml-loader/issues"
+  },
+  "homepage": "https://github.com/swiftcarrot/yaml-loader#readme"
+}
