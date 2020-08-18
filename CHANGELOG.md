@@ -4,6 +4,7 @@
 
 - remove multiple entries support with packs (default as `src/index.js`)
 - support alias with `/src` directory
+- remove toml support
 
 ## 3.0.1
 
