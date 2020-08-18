@@ -1,14 +1,15 @@
-const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const shared = require('./shared');
+const base = require('./base');
 
-module.exports = merge(shared(), {
+module.exports = {
+  ...base,
   mode: 'production',
 
   output: {
-    filename: 'packs/[name].[chunkhash:8].js',
-    chunkFilename: 'packs/[name].[chunkhash:8].chunk.js',
+    ...base.output,
+    filename: 'static/[name].[chunkhash:8].js',
+    chunkFilename: 'static/[name].[chunkhash:8].chunk.js',
     publicPath: '/',
   },
 
@@ -45,4 +46,4 @@ module.exports = merge(shared(), {
       new OptimizeCSSAssetsPlugin({}),
     ],
   },
-});
+};
