@@ -7,8 +7,9 @@
   "workspaces": [
     "packages/*"
   ],
-  "private": true, 
+  "private": true,
   "devDependencies": {
+    "lerna": "^3.22.1",
     "prettier": "^2.0.5"
   }
 }
