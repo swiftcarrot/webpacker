@@ -1,6 +1,9 @@
 {
   "name": "webpacker",
   "version": "0.1.0",
+  "scripts": {
+    "test": "cd packages/example && yarn build"
+  },
   "workspaces": [
     "packages/*"
   ],
