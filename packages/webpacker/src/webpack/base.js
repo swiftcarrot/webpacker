@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
@@ -6,23 +5,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { paths, isEnvProduction } = require('../utils/config');
 const rules = require('./rules');
 
-const alias = ['layouts', 'components', 'images', 'pages'].reduce((x, d) => {
-  x[d] = path.join(paths.appSrc, d);
-  return x;
-}, {});
-
 module.exports = {
   entry: {
     index: './src/index.js',
   },
   output: {
     path: paths.appBuild,
+    publicPath: paths.publicUrlOrPath,
   },
   module: {
     rules: rules,
   },
   resolve: {
-    alias: alias,
+    alias: {
+      src: paths.appSrc,
+    },
   },
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(process.env))),
