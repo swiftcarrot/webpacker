@@ -1,6 +1,6 @@
 {
   "name": "@swiftcarrot/yaml-loader",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "yaml loader",
   "main": "index.js",
   "publishConfig": {
@@ -17,7 +17,6 @@
   "dependencies": {
     "yaml": "^1.6.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/swiftcarrot/yaml-loader.git"
