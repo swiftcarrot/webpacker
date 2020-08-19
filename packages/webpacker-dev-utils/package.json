@@ -1,0 +1,7 @@
+{
+  "name": "webpacker-dev-utils",
+  "version": "0.1.0",
+  "main": "./src/index.js",
+  "author": "Wang Zuo <wangzuo@swiftcarrot.com> (https://swiftcarrot.com)",
+  "license": "MIT"
+}
