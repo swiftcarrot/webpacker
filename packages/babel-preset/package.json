@@ -1,8 +1,10 @@
 {
-  "name": "babel-preset",
-  "version": "0.1.0",
+  "name": "babel-preset-swiftcarrot",
+  "version": "1.1.0",
   "main": "./src/index.js",
-  "private": true,
+  "files": [
+    "src"
+  ],
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-export-default-from": "^7.5.2",

@@ -1,9 +1,13 @@
 {
-  "name": "webpacker",
+  "name": "webpacker-swiftcarrot",
   "version": "0.1.0",
   "main": "./src/main.js",
-  "bin": "./src/main.js",
-  "private": true,
+  "bin": {
+    "webpacker": "src/main.js"
+  },
+  "files": [
+    "src"
+  ],
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@svgr/webpack": "^5.4.0",
