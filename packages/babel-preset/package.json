@@ -18,5 +18,7 @@
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0-0"
-  }
+  },
+  "author": "Wang Zuo <wangzuo@swiftcarrot.com> (https://swiftcarrot.com/)",
+  "license": "MIT"
 }
