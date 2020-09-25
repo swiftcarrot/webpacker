@@ -1,6 +1,6 @@
 {
   "name": "webpacker-swiftcarrot",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./src/main.js",
   "bin": {
     "webpacker": "src/main.js"
@@ -13,7 +13,7 @@
     "@svgr/webpack": "^5.4.0",
     "@swiftcarrot/yaml-loader": "^0.2.3",
     "babel-loader": "^8.1.0",
-    "babel-preset-swiftcarrot": "^1.1.1",
+    "babel-preset-swiftcarrot": "^1.1.2",
     "commander": "^6.0.0",
     "css-loader": "^4.2.1",
     "file-loader": "^6.0.0",
